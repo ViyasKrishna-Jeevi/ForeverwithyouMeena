@@ -1,0 +1,213 @@
+﻿/* ==========================================
+   ANIMATED SKY
+========================================== */
+
+#sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 180deg, #071126 0%, #0d1c3b 35%, #13274f 70%, #050816 100% );
+    animation: skyMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes skyMove {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.15);
+    }
+}
+
+/* ==========================================
+   MOON
+========================================== */
+
+#moon {
+    position: absolute;
+    top: 7%;
+    right: 8%;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #fff7db;
+    box-shadow: 0 0 25px #fff7db, 0 0 60px rgba(255,255,220,.7), 0 0 120px rgba(255,255,220,.25);
+    animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px #fff7db, 0 0 70px rgba(255,255,220,.8), 0 0 150px rgba(255,255,220,.35);
+    }
+}
+
+/* ==========================================
+   MOON CRATERS
+========================================== */
+
+.crater {
+    position: absolute;
+    border-radius: 50%;
+    background: #e8dec5;
+}
+
+.crater1 {
+    width: 22px;
+    height: 22px;
+    left: 22px;
+    top: 34px;
+}
+
+.crater2 {
+    width: 14px;
+    height: 14px;
+    right: 25px;
+    top: 52px;
+}
+
+.crater3 {
+    width: 18px;
+    height: 18px;
+    left: 55px;
+    bottom: 24px;
+}
+
+/* ==========================================
+   STARS
+========================================== */
+
+#stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* ==========================================
+   HEARTS
+========================================== */
+
+#hearts {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* ==========================================
+   SPARKLES
+========================================== */
+
+#sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   SHOOTING STARS
+========================================== */
+
+#shootingStars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   STAR
+========================================== */
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+
+    0% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .2;
+    }
+}
+
+/* ==========================================
+   HEART
+========================================== */
+
+.heart {
+    position: absolute;
+    color: #ff6ba3;
+    animation: floatUp linear forwards;
+    opacity: .85;
+}
+
+@keyframes floatUp {
+
+    from {
+        transform: translateY(0) scale(.8);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(360deg) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   SHOOTING STAR
+========================================== */
+
+.shootingStar {
+    position: absolute;
+    width: 140px;
+    height: 2px;
+    background: linear-gradient(to right,white,transparent);
+    transform: rotate(-25deg);
+    animation: shoot 1.3s linear forwards;
+}
+
+@keyframes shoot {
+
+    from {
+        opacity: 1;
+        transform: translate(0,0) rotate(-25deg);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-600px,300px) rotate(-25deg);
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px) {
+
+    #moon {
+        width: 90px;
+        height: 90px;
+        top: 30px;
+        right: 20px;
+    }
+}

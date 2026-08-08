@@ -1,0 +1,691 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forever With You ❤️</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/effects.css">
+
+    <link rel="stylesheet" href="css/loading.css">
+
+    <link rel="stylesheet" href="css/chapter.css">
+
+    <link rel="stylesheet" href="css/judu.css">
+
+    <link rel="stylesheet" href="css/story.css">
+
+    <link rel="stylesheet" href="css/memory.css">
+
+    <link rel="stylesheet" href="css/letter.css">
+
+    <link rel="stylesheet" href="css/quiz.css">
+
+    <link rel="stylesheet" href="css/proposal.css">
+
+    <link rel="stylesheet" href="css/cake.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+                GLOBAL BACKGROUND
+    =========================================== -->
+
+    <div id="background">
+
+        <!-- Animated Sky -->
+        <div id="sky"></div>
+
+        <!-- Moon -->
+        <div id="moon">
+
+            <span class="crater crater1"></span>
+
+            <span class="crater crater2"></span>
+
+            <span class="crater crater3"></span>
+
+        </div>
+
+        <!-- Stars -->
+        <div id="stars"></div>
+
+        <!-- Floating Hearts -->
+        <div id="hearts"></div>
+
+        <!-- Sparkles -->
+        <div id="sparkles"></div>
+
+        <!-- Shooting Stars -->
+        <div id="shootingStars"></div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                    LOADING SCREEN
+    =========================================== -->
+
+    <section id="loadingScreen" class="screen">
+
+        <div class="content">
+
+            <h1 class="loadingTitle">
+
+                Forever With You ❤️
+
+            </h1>
+
+            <p id="loadingText">
+
+                Preparing something magical...
+
+            </p>
+
+            <div class="progressContainer">
+
+                <div id="progressBar"></div>
+
+            </div>
+
+            <h2 id="loadingPercent">
+
+                0%
+
+            </h2>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+                    CHAPTER ONE
+    =========================================== -->
+
+    <section id="chapter1" class="screen hidden">
+
+        <div class="chapterContainer">
+
+            <div id="line1" class="chapterLine chapterSmall"></div>
+
+            <div id="line2" class="chapterLine chapterBig"></div>
+
+            <div id="line3" class="chapterLine chapterSmall"></div>
+
+            <div id="line4" class="chapterLine chapterSmall"></div>
+
+            <div id="line5" class="chapterLine chapterSmall"></div>
+
+            <button id="chapterContinue">
+
+                Continue ❤️
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+                    JUDU INTRO
+    =========================================== -->
+
+    <section id="juduIntro" class="screen hidden">
+
+        <img id="judu"
+             src="images/judu/run1.png"
+             alt="Judu">
+
+        <div id="juduBubble" class="show">
+
+            <h2>Hi Meena ❤️</h2>
+
+            <p>I am you favourite, Judu!</p>
+
+            <p>Come with me...</p>
+
+        </div>
+
+        <button id="followJudu">
+
+            Follow Judu 🐾
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ==========================================
+                    BIRTHDAY GATE
+    =========================================== -->
+
+    <section id="birthdayGate" class="screen hidden">
+
+        <div class="birthdayCard">
+
+            <h1>
+
+                Happy Birthday Meena ❤️
+
+            </h1>
+
+            <p>
+
+                Today isn't just your birthday...
+
+                <br><br>
+
+                It is the day my favourite person came into this world.
+
+            </p>
+
+            <button id="beginJourney">
+
+                Begin Our Journey ❤️
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+                    STORY ENGINE
+    =========================================== -->
+    <!-- ==========================================
+         STORY
+    ========================================== -->
+
+    <section id="storySection" class="screen hidden">
+
+        <div class="storyContainer">
+
+            <div id="storyText"></div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+         MEMORY SECTION
+    ========================================== -->
+
+    <section id="memorySection" class="screen hidden">
+
+        <div id="memoryCard">
+
+            <div id="memoryMedia"></div>
+
+            <div class="memoryContent">
+
+                <h2 id="memoryTitle"></h2>
+
+                <p id="memoryDescription"></p>
+
+                <button id="nextMemory">
+                    Next Memory ❤️
+                </button>
+
+            </div>
+            <div id="memoryJudu">
+
+                <img id="memoryJuduDog"
+                     src="images/judu/run1.png"
+                     alt="Judu">
+
+                <div id="memoryJuduBubble">
+
+                    <p id="memoryJuduText"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="letterSection" class="screen hidden">
+
+        <div class="letterContainer">
+
+            <div id="envelope">
+
+                <div class="envelopeBack"></div>
+
+                <div class="envelopePaperPlaceholder"></div>
+
+                <div class="envelopeFront"></div>
+
+                <div class="envelopeFlap"></div>
+
+                <div class="heartSeal">❤️</div>
+
+            </div>
+
+            <div id="tapMessage">
+                <h2>A Letter For You ❤️</h2>
+                <p>Tap the envelope to open it.</p>
+            </div>
+
+            <div id="letterPaper">
+
+                <h2>To My Dearest Meena ❤️</h2>
+
+                <div id="letterText"></div>
+
+                <button id="letterContinue">
+                    Continue ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECRET ARCHIVES
+    ========================================== -->
+    <!-- ==========================================
+         SECRET ARCHIVES
+    ========================================== -->
+
+    <section id="secretSection" class="screen hidden">
+
+        <div class="secretContainer">
+
+            <!-- Heading -->
+
+            <h1 id="secretHeading">
+                ❤️ Secret Archives
+            </h1>
+
+            <p id="secretSubHeading">
+
+                These files were never meant to be seen...
+
+                <br>
+
+                Until today.
+
+            </p>
+
+            <!-- ==========================================
+                 QUIZ CARD
+            ========================================== -->
+
+            <div id="quizCard">
+
+                <div id="questionNumber">
+
+                    Question 1 / 5
+
+                </div>
+
+                <h2 id="questionText">
+
+                    Question goes here...
+
+                </h2>
+
+                <div id="quizOptions">
+
+                    <!-- JS -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 JUDU
+            ========================================== -->
+
+            <div id="secretJudu">
+
+                <img id="secretJuduDog"
+                     src="images/judu/run1.png"
+                     alt="Judu">
+
+                <div id="secretBubble">
+
+                    <div id="secretBubbleTitle">
+
+                        🐶 Judu
+
+                    </div>
+
+                    <div id="secretBubbleText">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 SECRET FOLDER
+            ========================================== -->
+
+            <div id="folderContainer">
+
+                <div id="folder">
+
+                    <!-- Back -->
+
+                    <div class="folderBack"></div>
+
+                    <!-- Paper -->
+
+                    <div class="folderPaper">
+
+                        ❤️
+
+                    </div>
+
+                    <!-- Front -->
+
+                    <div class="folderFront">
+
+                        <div id="folderLock">
+
+                            🔒
+
+                        </div>
+
+                        <div id="folderTitle">
+
+                            TOP SECRET
+
+                        </div>
+
+                        <div id="folderSubtitle">
+
+                            FOR MEENA ONLY
+
+                        </div>
+
+                    </div>
+
+                    <!-- Flap -->
+
+                    <div class="folderFlap"></div>
+
+                </div>
+
+                <p id="folderHint">
+
+                    Tap to unlock the secret ❤️
+
+                </p>
+
+            </div>
+
+
+            <!-- ==========================================
+                 SECRET FILE
+            ========================================== -->
+
+            <div id="secretFile">
+
+                <div id="fileHeader">
+
+                    <div id="fileDot"></div>
+
+                    <span id="fileTitle">
+
+                        Secrets
+
+                    </span>
+
+                </div>
+
+                <div id="fileStamp">
+
+                    ❤️ CONFIDENTIAL ❤️
+
+                </div>
+
+                <div id="fileBody">
+
+                    <p id="fileContent">
+
+                    </p>
+
+                </div>
+
+                <button id="nextSecret">
+
+                    Continue ❤️
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+         PROPOSAL SECTION
+    ========================================== -->
+
+    <section id="proposalSection" class="screen hidden">
+
+        <!-- Stars -->
+        <div id="proposalStars"></div>
+
+        <!-- Moon -->
+        <div id="proposalMoon">🌙</div>
+
+        <!-- Main Container -->
+        <div id="proposalContainer">
+
+            <!-- Intro Title -->
+            <h1 id="proposalTitle">
+                A Letter from My Heart ❤️...
+            </h1>
+
+            <p id="proposalSubtitle">
+                Before this story ends...
+                <br>
+                there's something
+                I want to tell you.
+            </p>
+
+            <!-- Judu -->
+            <div id="proposalJudu">
+
+                <img id="proposalDog"
+                     src="images/judu/run1.png"
+                     alt="Judu">
+
+                <div id="proposalBubble">
+
+                    <div id="proposalBubbleText"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Love Letter -->
+            <div id="proposalLetter">
+
+                <h2>
+                    Dear Meena ❤️
+                </h2>
+
+                <div id="proposalLetterText"></div>
+                <div id="proposalLetterTap">
+                    💕 Tap here to continue 💕
+                </div>
+
+            </div>
+
+            <!-- Ring Box -->
+            <div id="ringContainer">
+
+                <div id="ringBox">
+                    <p id="ringHint">
+                        ✨ Tap the ring box...
+                    </p>
+
+                    <div id="ringLid"></div>
+
+                    <div id="ringBase">
+
+                        <img id="proposalRing"
+                             src="images/proposal/Ring.png"
+                             alt="Ring">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Final Question -->
+
+            <div id="proposalQuestionContainer" style="display:none;">
+
+                <h1 id="proposalQuestion">
+                    Will You Marry Me?
+                </h1>
+
+                <p id="proposalSub">
+                    Will you make me the happiest person forever? ❤️
+                </p>
+
+                <div id="proposalButtons">
+
+                    <button id="yesBtn">
+                        YES ❤️
+                    </button>
+
+                    <button id="noBtn">
+                        NO 🙈
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+         BIRTHDAY CAKE
+    ========================================== -->
+
+    <section id="cakeSection" class="screen hidden">
+
+        <div id="cakeMoon"></div>
+
+        <div id="cakeStars"></div>
+        <div id="cakeBackground"></div>
+
+        <div id="cakeContainer">
+
+            <img id="birthdayCake"
+                 src="images/gift/cake_unlit.png"
+                 alt="Birthday Cake">
+
+        </div>
+
+        <!-- JUDU -->
+
+        <div id="cakeJudu">
+
+            <img id="cakeDog"
+                 src="images/judu/run1.png">
+
+            <div id="cakeBubble">
+
+                <div id="cakeBubbleText"></div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- ==========================================
+                    AUDIO
+    =========================================== -->
+
+    <audio id="bgMusic" src="sounds/bgmusic.mp3" loop></audio>
+
+    <audio id="starting" src="sounds/starting.mp3" loop></audio>
+
+    <audio id="story" src="sounds/story.mp3" loop></audio>
+
+    <audio id="barkSound" src="sounds/bark.mp3"></audio>
+
+
+
+    <!-- ==========================================
+                    JAVASCRIPT
+    =========================================== -->
+    <script type="module" src="js/firebase.js"></script>
+
+    <script src="js/navigation.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/effects.js"></script>
+
+    <script src="js/loading.js"></script>
+
+    <script src="js/story.js"></script>
+
+    <script src="js/judu.js"></script>
+
+    <script src="js/birthday.js"></script>
+
+    <script src="js/memory.js"></script>
+
+    <script src="js/letter.js"></script>
+
+    <script src="js/quiz.js"></script>
+
+    <script src="js/proposal.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,523 @@
+﻿/* ==========================================
+   CAKE SECTION
+========================================== */
+
+#cakeSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top,#324b77 0%,#182845 45%,#090d18 100%);
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+#cakeBackground {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,.06), transparent 70%);
+    z-index: 1;
+}
+
+#cakeStars {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+#cakeMoon {
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff8d8;
+    box-shadow: 0 0 30px #fff, 0 0 80px #fff7b0, 0 0 150px #ffe38a;
+    animation: moonFloat 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes moonFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ==========================================
+   CAKE
+========================================== */
+
+#cakeContainer {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%,-50%) scale(.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .8s;
+    z-index: 15;
+}
+
+    #cakeContainer.cakeShow {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+#birthdayCake {
+    width: 390px;
+    max-width: 85vw;
+    transition: .35s;
+}
+
+    #birthdayCake:hover {
+        transform: scale(1.05);
+    }
+
+#cakeInstruction {
+    margin-top: 18px;
+    color: white;
+    font-size: 18px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================
+   JUDU
+========================================== */
+
+#cakeJudu {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 340px;
+    z-index: 30;
+}
+
+#cakeDog {
+    width: 340px;
+}
+/* ==========================================
+   BUBBLE
+========================================== */
+
+#cakeBubble {
+    position: absolute;
+    bottom: 150px;
+    left: 120px;
+    width: 220px;
+    padding: 15px;
+    border-radius: 18px;
+    background: white;
+    color: #333;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .4s;
+}
+
+    #cakeBubble.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* ==========================================
+   SPARKLES
+========================================== */
+
+.cakeSparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FFD700;
+    box-shadow: 0 0 10px gold, 0 0 25px gold;
+    pointer-events: none;
+    animation: cakeSparkleAnim 1.5s ease-out forwards;
+    z-index: 40;
+}
+
+@keyframes cakeSparkleAnim {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.3);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) translateX(calc(var(--x,0)*1px)) scale(1.5);
+    }
+}
+
+.cakeGlow {
+    animation: cakeGlow 1.5s infinite alternate;
+}
+
+@keyframes cakeGlow {
+
+    from {
+        filter: drop-shadow(0 0 10px gold);
+    }
+
+    to {
+        filter: drop-shadow(0 0 35px gold) drop-shadow(0 0 70px #FFD369);
+    }
+}
+
+/* ==========================================
+   FIREWORKS
+========================================== */
+
+.firework {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 9999;
+    animation: fireworkBlast 1.2s ease-out forwards;
+}
+
+@keyframes fireworkBlast {
+
+    from {
+        opacity: 1;
+        transform: translate(0,0) scale(.4);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(var(--x),var(--y)) scale(1.6);
+    }
+}
+
+/* ==========================================
+   RIBBONS
+========================================== */
+
+.ribbon {
+    position: fixed;
+    top: -80px;
+    width: 10px;
+    height: 45px;
+    border-radius: 10px;
+    z-index: 9998;
+    animation: ribbonFall linear forwards;
+}
+
+@keyframes ribbonFall {
+
+    from {
+        transform: translateY(-100px) rotate(0);
+    }
+
+    to {
+        transform: translateY(120vh) rotate(720deg);
+    }
+}
+
+/* ==========================================
+   BALLOONS
+========================================== */
+
+.partyBalloon {
+    position: fixed;
+    bottom: -120px;
+    pointer-events: none;
+    z-index: 9997;
+    animation: balloonFly linear forwards;
+}
+
+@keyframes balloonFly {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-130vh);
+    }
+}
+
+/* ==========================================
+   FINAL SCREEN
+========================================== */
+
+#birthdayEnding {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: radial-gradient(circle at top,#2d3d5b,#18233a,#090d18);
+}
+
+#endingStars {
+    position: absolute;
+    inset: 0;
+}
+
+#endingCake {
+    width: 320px;
+    max-width: 80vw;
+    animation: cakeFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px gold) drop-shadow(0 0 70px rgba(255,215,0,.7));
+    z-index: 3;
+}
+#birthdayTitle {
+    margin-top: 18px;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    font-family: "Dancing Script", "Great Vibes", cursive;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #ff6ba6, 0 0 25px #ff4d94;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+    z-index: 5;
+}
+
+#birthdayMessage {
+    margin-top: 20px;
+    width: 88%;
+    max-width: 500px;
+    color: #ffffff;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: .4px;
+    text-align: center;
+    white-space: pre-line;
+    z-index: 5;
+    /* ✨ TEXT GLOW */
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffb6c1, 0 0 35px #ff69b4, 0 0 55px rgba(255,105,180,.8);
+    animation: birthdayTextGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes birthdayTextGlow {
+
+    0%, 100% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffb6c1, 0 0 35px #ff69b4, 0 0 55px rgba(255,105,180,.7);
+    }
+
+    50% {
+        text-shadow: 0 0 8px #ffffff, 0 0 18px #ffffff, 0 0 30px #ffb6c1, 0 0 50px #ff69b4, 0 0 80px rgba(255,105,180,1);
+    }
+}
+#restartStory {
+    display: none;
+    margin-top: 25px;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 40px;
+    font-size: 18px;
+    font-family: Poppins,sans-serif;
+    background: linear-gradient(45deg,#ff4d94,#ff7eb3);
+    color: white;
+    box-shadow: 0 0 18px rgba(255,77,148,.45);
+    transition: .35s;
+}
+
+@keyframes cakeFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+#endingJudu {
+    width: 270px;
+    max-width: 70vw;
+    margin-top: 10px;
+    animation: juduBreath 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(255,255,255,.25));
+    z-index: 3;
+}
+@keyframes titleGlow {
+
+    from {
+        text-shadow: 0 0 8px #ff6ba6, 0 0 18px #ff4d94;
+    }
+
+    to {
+        text-shadow: 0 0 18px #ff8dc4, 0 0 40px #ff4d94;
+    }
+}
+#loveQuestion {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.7);
+    width: 88%;
+    max-width: 300px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    border-radius: 25px;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: .8s;
+    z-index: 100;
+}
+
+    #loveQuestion.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #loveQuestion:not(.hidden) {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+#endingOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    z-index: 100;
+}
+
+    #endingOverlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+#endingJudu {
+    width: 280px;
+    animation: juduBreath 2s infinite;
+}
+
+#endingBubble {
+    margin-top: 20px;
+    width: 300px;
+    background: white;
+    color: #333;
+    border-radius: 18px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: .4s;
+}
+
+    #endingBubble.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+.finalThanks {
+    margin-top: 20px;
+    font-size: 22px;
+    color: white;
+    line-height: 1.6;
+    font-family: "Cormorant Garamond",serif;
+}
+
+.endingQuote {
+    margin-top: 35px;
+    font-size: 28px;
+    color: #FFD6E8;
+    font-family: "Parisienne",cursive;
+    line-height: 1.5;
+    text-shadow: 0 0 12px rgba(255,255,255,.25);
+}
+
+.endingSignature {
+    margin-top: 40px;
+    font-size: 22px;
+    color: white;
+    font-family: "Poppins",sans-serif;
+    letter-spacing: 2px;
+    opacity: .9;
+}
+#loveAnswer {
+    width: 100%;
+    height: 180px;
+    padding: 20px;
+    border-radius: 18px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: "Poppins",sans-serif;
+    background: rgba(255,255,255,.92);
+    color: #333;
+    box-sizing: border-box;
+}
+    #loveAnswer::placeholder {
+        color: #888;
+        font-style: italic;
+    }
+
+#loveQuestion button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 18px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg,#ff4d94,#ff7aa8);
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+    #loveQuestion button:hover {
+        transform: scale(1.05);
+    }

@@ -1,0 +1,253 @@
+﻿/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Quicksand',sans-serif;
+    background: #050816;
+    color: white;
+    position: relative;
+}
+
+
+/* ==========================================
+   GLOBAL BACKGROUND
+========================================== */
+
+#background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+
+/* ==========================================
+   SCREEN
+========================================== */
+
+/* ==========================================
+   SCREEN SYSTEM
+========================================== */
+
+
+.screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity .8s ease;
+    z-index: 10;
+}
+
+
+
+/* Hidden screens */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   HIDDEN
+========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.content {
+    width: min(92%,800px);
+    margin: auto;
+}
+
+
+/* ==========================================
+   TITLES
+========================================== */
+
+h1 {
+    font-family: 'Great Vibes',cursive;
+    font-size: clamp(48px,7vw,82px);
+    color: #FFD369;
+    text-shadow: 0 0 25px rgba(255,211,105,.45);
+}
+
+
+h2 {
+    font-family: 'Cormorant Garamond',serif;
+    font-size: clamp(24px,4vw,42px);
+    font-weight: 600;
+}
+
+
+p {
+    font-size: clamp(17px,2.5vw,24px);
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+button {
+    margin-top: 35px;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Quicksand',sans-serif;
+    color: white;
+    background: linear-gradient(135deg,#ff6fa9,#ff3f88);
+    transition: .35s;
+}
+
+
+    button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(255,70,140,.45);
+    }
+
+
+    button:active {
+        transform: scale(.96);
+    }
+
+
+/* ==========================================
+   FADE
+========================================== */
+
+.fadeIn {
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================
+   FADE UP
+========================================== */
+
+.fadeUp {
+    animation: fadeUp .8s forwards;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================
+   BREATHE
+========================================== */
+
+.breathe {
+    animation: breathe 2.2s infinite ease-in-out;
+}
+
+@keyframes breathe {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================
+   PULSE
+========================================== */
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px) {
+
+    .screen {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 280px;
+        font-size: 17px;
+        padding: 15px;
+    }
+}

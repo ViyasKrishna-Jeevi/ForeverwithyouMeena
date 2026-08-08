@@ -1,0 +1,865 @@
+﻿/* ==========================================
+   PROPOSAL SECTION
+========================================== */
+
+#proposalSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    background: radial-gradient(circle at top,#243B55 0%,#141E30 60%,#090d18 100%);
+}
+    #proposalSection.show {
+        opacity: 1;
+    }
+
+/* ==========================================
+   STARS
+========================================== */
+
+#proposalStars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,100% {
+        opacity: .2;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.8);
+    }
+}
+
+/* ==========================================
+   MOON
+========================================== */
+
+#proposalMoon {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 75px;
+    filter: drop-shadow(0 0 20px #fff);
+    animation: moonFloat 5s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+#proposalContainer {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+#proposalTitle {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 18px;
+    opacity: 0;
+}
+
+#proposalSubtitle {
+    color: #ffffffcc;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    opacity: 0;
+}
+
+/* ==========================================
+   JUDU
+========================================== */
+
+#proposalJudu {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 320px; /* was 180px */
+    margin-top: 80px;
+}
+
+#proposalDog {
+    position: absolute;
+    left: -220px;
+    bottom: -15;
+    width: 380px;
+}
+
+#proposalBubble {
+    position: absolute;
+    left: 80px;
+    bottom: 290px;
+    width: 230px;
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    opacity: 0;
+    transform: scale(.8);
+    transition: .35s;
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+}
+
+    #proposalBubble.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    #proposalBubble::after {
+        content: "";
+        position: absolute;
+        left: 45px;
+        bottom: -16px;
+        border-top: 15px solid white;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+    }
+
+#proposalBubbleText {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   FULL SCREEN PROPOSAL LETTER
+========================================== */
+
+#proposalLetter {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 94%;
+    max-width: 520px;
+    height: 88vh;
+    box-sizing: border-box;
+    background: linear-gradient( 135deg, #fffef9 0%, #fffaf0 50%, #fffef9 100% );
+    color: #444;
+    border-radius: 24px;
+    padding: 35px 32px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.45), 0 0 40px rgba(255,182,193,.25);
+    overflow-y: auto;
+    border: 1px solid rgba(255,255,255,.9);
+}
+
+
+    /* ==========================================
+   TITLE
+========================================== */
+
+    #proposalLetter h2 {
+        color: #ff4d94;
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 34px;
+        margin: 0 0 25px;
+        text-shadow: 0 0 10px rgba(255,77,148,.25);
+    }
+
+
+/* ==========================================
+   LETTER TEXT
+========================================== */
+
+#proposalLetterText {
+    white-space: pre-line;
+    font-family: "Italianno", cursive;
+    font-size: 21px;
+    line-height: 1.4;
+    letter-spacing: .3px;
+    color: #4a4a4a;
+    text-align: left;
+    padding: 0 8px;
+}
+
+
+/* ==========================================
+   TAP TO CONTINUE
+========================================== */
+
+#proposalLetterTap {
+    display: none;
+    text-align: center;
+    margin-top: 25px;
+    color: #ff4d94;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    animation: letterTapGlow 1.5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+
+@keyframes letterTapGlow {
+
+    0%,100% {
+        opacity: .45;
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(255,77,148,.2);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.06);
+        text-shadow: 0 0 10px rgba(255,77,148,.5), 0 0 25px rgba(255,77,148,.25);
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    #proposalLetter {
+        width: 94%;
+        height: 88vh;
+        padding: 28px 24px;
+        border-radius: 22px;
+    }
+
+        #proposalLetter h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+    #proposalLetterText {
+        font-size: 19px;
+        line-height: 1.35;
+        padding: 0 3px;
+    }
+
+    #proposalLetterTap {
+        font-size: 20px;
+        margin-top: 22px;
+    }
+}
+/* ==========================================
+   RING
+========================================== */
+
+/* ==========================================
+   RING CONTAINER
+========================================== */
+
+#ringContainer {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 340px;
+}
+
+/* ==========================================
+   RING BOX
+========================================== */
+
+#ringBox {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    animation: ringBoxFloat 3s ease-in-out infinite;
+}
+
+/* ==========================================
+   BOX LID
+========================================== */
+
+#ringLid {
+    position: absolute;
+    /* Center WITHOUT transform */
+    left: calc(50% - 105px);
+    top: 65px;
+    width: 210px;
+    height: 80px;
+    background: linear-gradient( 180deg, #ff82b9, #ff4d94, #cc1e66 );
+    border-radius: 16px 16px 6px 6px;
+    border: 3px solid #ffd76d;
+    box-shadow: inset 0 4px 10px rgba(255,255,255,.35), 0 10px 22px rgba(0,0,0,.35);
+    transform-origin: bottom center;
+    /* IMPORTANT */
+    transform: rotateX(0deg);
+    z-index: 5;
+    transition: 1s;
+}
+
+
+#ringBase {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    width: 210px;
+    height: 100px;
+    background: linear-gradient( 180deg, #c5165d, #8d0d43 );
+    border-radius: 6px 6px 18px 18px;
+    border: 3px solid #ffd76d;
+    box-shadow: inset 0 8px 15px rgba(255,255,255,.18), 0 12px 30px rgba(0,0,0,.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* Velvet inside */
+
+    #ringBase::before {
+        content: "";
+        position: absolute;
+        width: 165px;
+        height: 65px;
+        border-radius: 14px;
+        background: radial-gradient( circle, #6b002d, #3a0019 );
+    }
+
+/* ==========================================
+   RING
+========================================== */
+
+/* ==========================================
+   RING
+========================================== */
+
+#proposalRing {
+    position: absolute;
+    left:-20px;
+    bottom: 75px;
+    width: 340px;
+    z-index: 20;
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px) scale(.7);
+    transition: opacity 1s ease;
+    filter: drop-shadow(0 0 15px gold) drop-shadow(0 0 45px gold) drop-shadow(0 0 90px #fff5b5);
+}
+
+/* ==========================================
+   OPEN BOX
+========================================== */
+
+#ringBox.open #ringLid {
+    transform: rotateX(-135deg);
+}
+
+#ringBox.open #proposalRing {
+    opacity: 1;
+    transform: translateY(-35px) scale(1);
+}
+
+/* ==========================================
+   GOLD GLOW
+========================================== */
+
+#ringBox::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba(255,215,0,.35), rgba(255,150,0,.15), transparent 70% );
+    filter: blur(16px);
+    animation: goldAura 3s infinite;
+}
+/* ==========================================
+   FLOAT
+========================================== */
+
+@keyframes ringBoxFloat {
+
+    0%,100% {
+        transform: translate(-50%,-50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%,-50%) translateY(-10px);
+    }
+}
+
+/* ==========================================
+   GOLD AURA
+========================================== */
+
+@keyframes goldAura {
+
+    0%,100% {
+        transform: scale(.9);
+        opacity: .45;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   RING GLOW
+========================================== */
+
+@keyframes ringGlow {
+
+    0% {
+        filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 25px gold);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px gold) drop-shadow(0 0 100px #fff9b3);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 25px gold);
+    }
+}
+
+#proposalRing {
+    animation: ringGlow 2s infinite;
+}
+
+
+/* ==========================================
+   QUESTION
+========================================== */
+
+#proposalQuestionContainer {
+    display: none;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#proposalQuestion {
+    color: white;
+    font-size: 44px;
+    line-height: 1.4;
+    margin-bottom: 35px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+#proposalButtons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+
+#yesBtn,
+#noBtn {
+    border: none;
+    border-radius: 40px;
+    padding: 16px 32px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#yesBtn {
+    background: #ff4d94;
+    color: white;
+}
+
+    #yesBtn:hover {
+        transform: scale(1.08);
+    }
+
+#noBtn {
+    background: white;
+}
+#proposalSub {
+    color: #ffffffcc;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+/* ==========================================
+   FOREVER SCREEN
+========================================== */
+
+#foreverScreen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+    #foreverScreen h1 {
+        color: #ff4d94;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    #foreverScreen h2 {
+        color: #FFD369;
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+
+    #foreverScreen p {
+        color: white;
+        font-size: 22px;
+        line-height: 1.8;
+    }
+/* ==========================================
+   HEART BLAST
+========================================== */
+
+.blastHeart {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    font-size: 32px;
+    pointer-events: none;
+    animation: heartBlast 2s forwards;
+}
+
+@keyframes heartBlast {
+
+    from {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(.3);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate( calc(-50% + var(--x)), calc(-50% + var(--y)) ) rotate(720deg) scale(1.8);
+    }
+}
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
+
+.endingHeart {
+    position: fixed;
+    width: 10px;
+    height: 16px;
+    border-radius: 2px;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+    animation: endingHeart 5s linear forwards;
+}ringhint
+@keyframes endingHeart {
+
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+/* ==========================================
+   CONFETTI
+========================================== */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 16px;
+    border-radius: 2px;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+    animation: confettiBlast 3s ease-out forwards;
+}
+
+@keyframes confettiBlast {
+
+    0% {
+        transform: translate(0,0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x),var(--y)) rotate(900deg) scale(.3);
+        opacity: 0;
+    }
+}
+@media(max-width:480px) {
+
+    #proposalQuestion {
+        font-size: 34px;
+    }
+
+    #proposalSub {
+        font-size: 16px;
+    }
+
+    #yesBtn,
+    #noBtn {
+        width: 140px;
+    }
+
+    #foreverScreen h1 {
+        font-size: 34px;
+    }
+
+    #foreverScreen h2 {
+        font-size: 26px;
+    }
+
+    #foreverScreen p {
+        font-size: 18px;
+    }
+}
+#noBtn {
+    transition: left .35s, top .35s, transform .25s;
+}
+
+/* ===============================
+   RING POP
+================================*/
+
+.ringPop {
+    animation: ringPop .9s cubic-bezier(.17,1.5,.32,1);
+}
+
+@keyframes ringPop {
+
+    0% {
+        transform: translateY(40px) scale(.2);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(-40px) scale(1.4);
+    }
+
+    70% {
+        transform: translateY(0) scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+.goldParticle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 15px gold;
+    animation: goldBlast 2.4s forwards;
+}
+
+@keyframes goldBlast {
+
+    from {
+        transform: translate(0,0) scale(.4);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(var(--x),var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+.fireworkDot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 12px white;
+    animation: firework 2s forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes firework {
+
+    from {
+        transform: translate(0,0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(var(--x),var(--y));
+        opacity: 0;
+    }
+}
+#screenFlash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99999;
+    animation: screenFlash .7s forwards;
+    pointer-events: none;
+}
+
+@keyframes screenFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+.endingHeart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 30px;
+    animation: heartRise 5s linear forwards;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes heartRise {
+
+    from {
+        transform: translateY(0) scale(.7);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+#ringHint {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-align: center;
+    width: 300px;
+    text-shadow: 0 0 12px #ffd700, 0 0 25px #ff4d94;
+    animation: tapGlow 1.4s infinite;
+    z-index: 100;
+    transition: opacity .3s ease;
+}
+
+@keyframes tapGlow {
+
+    0%,100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: .6;
+        transform: translateX(-50%) scale(1.08);
+    }
+}
+
+@keyframes pulseRingHint {
+
+    0% {
+        opacity: .5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: .5;
+        transform: scale(1);
+    }
+}
+
+#celebrateBtn {
+    margin-top: 40px;
+    padding: 18px 45px;
+    font-size: 22px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient( 45deg, #ff5da2, #ffb347);
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .8s;
+    box-shadow: 0 0 30px rgba(255,100,180,.5);
+}
+
+
+    #celebrateBtn.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    #celebrateBtn:hover {
+        transform: scale(1.08);
+    }
+
+#yesBtn {
+    background: #ff4d94;
+    color: white;
+}
+
+#noBtn {
+    background: #FFD369;
+    color: #222;
+}

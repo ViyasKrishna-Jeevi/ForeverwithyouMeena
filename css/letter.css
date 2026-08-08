@@ -1,0 +1,241 @@
+﻿/* ==========================================
+   LETTER SECTION
+========================================== */
+
+#letterSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.letterContainer {
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+    text-align: center;
+}
+
+/* ==========================================
+   ENVELOPE
+========================================== */
+
+#envelope {
+    width: 320px;
+    height: 210px;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+/* back */
+
+.envelopeBack {
+    position: absolute;
+    inset: 0;
+    background: #ffbfd2;
+    border-radius: 12px;
+}
+
+/* paper placeholder */
+
+.envelopePaperPlaceholder {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    height: 160px;
+    background: #fffdf9;
+    top: 25px;
+    border-radius: 6px;
+}
+
+/* front */
+
+.envelopeFront {
+    position: absolute;
+    inset: 0;
+    background: #ff9fc1;
+    clip-path: polygon(0 100%,50% 45%,100% 100%,100% 100%,0 100%);
+}
+
+/* flap */
+
+.envelopeFlap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background: #ff7eaf;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+    transform-origin: top;
+    transition: 1s;
+    z-index: 20;
+}
+
+.heartSeal {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    font-size: 32px;
+    z-index: 30;
+    transition: .6s;
+}
+
+#envelope.open .envelopeFlap {
+    transform: rotateX(180deg);
+    z-index: -1;
+}
+
+#envelope.open .heartSeal {
+    opacity: 0;
+}
+
+/* ==========================================
+   TAP MESSAGE
+========================================== */
+
+#tapMessage {
+    margin-top: 25px;
+}
+
+    #tapMessage h2 {
+        color: #FFD369;
+    }
+
+    #tapMessage p {
+        margin-top: 10px;
+    }
+
+    #tapMessage span {
+        display: block;
+        margin-top: 15px;
+        color: #ff9fc1;
+        animation: breathe 2s infinite;
+    }
+
+/* ==========================================
+   LETTER
+========================================== */
+
+/* ==========================================
+LETTER
+========================================== */
+
+#letterPaper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -45%) scale(.9);
+    width: 88%;
+    max-width: 340px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #fffef8;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    opacity: 0;
+    transition: 1s;
+    z-index: 15;
+    box-sizing: border-box;
+}
+
+    /* SHOW LETTER */
+
+    #letterPaper.show {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* LETTER TITLE */
+
+    #letterPaper h2 {
+        color: #ff4d94;
+        margin-bottom: 15px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+/* LETTER TEXT */
+
+#letterText {
+    color: #444 !important;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: left;
+    white-space: pre-line;
+    margin: 0;
+    max-height: 45vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* ==========================================
+CONTINUE BUTTON
+========================================== */
+
+#letterContinue {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 20px;
+    display: none;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient( 45deg, #ff4d94, #ff82b9 );
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255,77,148,.3);
+}
+
+/* ==========================================
+MOBILE
+========================================== */
+
+@media(max-width:480px) {
+
+    #letterPaper {
+        width: 88%;
+        max-width: 320px;
+        max-height: 72vh;
+        padding: 18px;
+    }
+
+        #letterPaper h2 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+    #letterText {
+        font-size: 15px;
+        line-height: 1.35;
+        max-height: 42vh;
+    }
+
+    #letterContinue {
+        margin-top: 15px;
+        padding: 11px 18px;
+        font-size: 15px;
+    }
+}
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:480px) {
+
+    #envelope {
+        width: 280px;
+        height: 185px;
+    }
+}
+
+#letterText {
+    color: #444 !important;
+    font-size: 17px;
+    line-height: 1;
+    text-align: left;
+    white-space: pre-line;
+}

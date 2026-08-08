@@ -1,0 +1,184 @@
+﻿/* ==========================================
+   JUDU INTRO
+   Mobile First
+========================================== */
+
+#juduIntro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   JUDU
+========================================== */
+
+/* ==========================================
+   MOBILE JUDU
+========================================== */
+
+#judu {
+    position: absolute;
+    width: 300px; /* Bigger */
+
+    left: -260px;
+    bottom: 180px; /* Higher from bottom */
+
+    z-index: 20;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* Running Animation */
+
+.juduRunning {
+    animation: juduRun .45s steps(1) infinite;
+}
+
+
+/* Breathing */
+
+.juduBreathing {
+    animation: breathe 2.2s ease-in-out infinite;
+}
+
+
+/* ==========================================
+   SPEECH BUBBLE
+========================================== */
+
+#juduBubble {
+    position: absolute;
+    bottom: 410px;
+    left: 50%;
+    transform: translateX(-50%) scale(.8);
+    width: 92%;
+    max-width: 320px;
+    background: white;
+    color: #222;
+    border-radius: 22px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    opacity: 0;
+    transition: .45s;
+    z-index: 40;
+}
+
+
+    /* Bubble Tail */
+
+    #juduBubble::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -17px;
+        transform: translateX(-50%);
+        border-top: 18px solid white;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+    }
+
+
+    #juduBubble h2 {
+        color: #ff4d94;
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+
+
+    #juduBubble p {
+        font-size: 18px;
+        margin: 6px 0;
+        line-height: 1.5;
+    }
+
+
+    #juduBubble.show {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+#followJudu {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    opacity: 0;
+    transition: .4s;
+    z-index: 50;
+}
+
+
+    #followJudu.show {
+        opacity: 1;
+    }
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(min-width:768px) {
+
+    #judu {
+        width: 230px;
+        bottom: 120px;
+    }
+
+    #juduBubble {
+        max-width: 380px;
+        bottom: 370px;
+    }
+}
+
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media(min-width:1200px) {
+
+    #judu {
+        width: 320px;
+        bottom: 90px;
+    }
+
+    #juduBubble {
+        max-width: 450px;
+        bottom: 470px;
+    }
+}
+
+
+/* ==========================================
+   RUN KEYFRAME
+========================================== */
+
+@keyframes juduRun {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,122 @@
+﻿/* ==========================================
+   LOADING SCREEN (MOBILE FIRST)
+========================================== */
+
+#loadingScreen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+    #loadingScreen .content {
+        width: 100%;
+        max-width: 360px;
+    }
+
+.loadingTitle {
+    font-family: 'Great Vibes',cursive;
+    font-size: 56px;
+    color: #FFD369;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px rgba(255,211,105,.5);
+}
+
+#loadingText {
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 55px;
+    margin-bottom: 30px;
+}
+
+.progressContainer {
+    width: 100%;
+    height: 14px;
+    background: rgba(255,255,255,.12);
+    border-radius: 50px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 10px rgba(255,255,255,.1), 0 0 15px rgba(255,80,150,.2);
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient( 90deg, #ff5f98, #ff85b8, #FFD369 );
+    transition: width .25s linear;
+}
+
+#loadingPercent {
+    margin-top: 18px;
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+}
+
+.loadingGlow {
+    animation: loadingGlow 2s infinite;
+}
+
+@keyframes loadingGlow {
+
+    50% {
+        text-shadow: 0 0 10px white, 0 0 20px #FFD369, 0 0 40px #FFD369;
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(min-width:768px) {
+
+    .loadingTitle {
+        font-size: 72px;
+    }
+
+    #loadingText {
+        font-size: 22px;
+    }
+
+    .progressContainer {
+        height: 16px;
+    }
+
+    #loadingPercent {
+        font-size: 38px;
+    }
+
+    #loadingScreen .content {
+        max-width: 520px;
+    }
+}
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media(min-width:1200px) {
+
+    .loadingTitle {
+        font-size: 90px;
+    }
+
+    #loadingText {
+        font-size: 26px;
+    }
+
+    .progressContainer {
+        height: 18px;
+    }
+
+    #loadingPercent {
+        font-size: 46px;
+    }
+
+    #loadingScreen .content {
+        max-width: 700px;
+    }
+}

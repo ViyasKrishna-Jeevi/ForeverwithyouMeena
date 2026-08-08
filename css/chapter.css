@@ -1,0 +1,116 @@
+﻿/* ==========================================
+   CHAPTER 1
+========================================== */
+
+
+#chapter1 {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    overflow: hidden;
+}
+
+
+
+.chapterContainer {
+    width: 100%;
+    max-width: 650px;
+}
+
+
+
+/* Every line */
+
+.chapterLine {
+    opacity: 0;
+    color: white;
+    margin: 25px 0;
+    min-height: 40px;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(20px);
+}
+
+
+
+/* When JS activates */
+
+.showLine {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Small text */
+
+
+.chapterSmall {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px,5vw,32px);
+    line-height: 1.5;
+}
+
+
+
+/* Main emotional line */
+
+
+.chapterBig {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(40px,10vw,65px);
+    color: #FFD369;
+    line-height: 1.2;
+    margin: 35px 0;
+}
+
+
+
+/* Button */
+
+
+#chapterContinue {
+    margin-top: 45px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient( 135deg, #ff6fa5, #ff4d94 );
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s;
+}
+
+
+
+    #chapterContinue.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+
+
+/* Mobile */
+
+@media(max-width:768px) {
+
+
+    .chapterContainer {
+        max-width: 340px;
+    }
+
+
+    .chapterSmall {
+        font-size: 22px;
+    }
+
+
+    .chapterBig {
+        font-size: 45px;
+    }
+}
