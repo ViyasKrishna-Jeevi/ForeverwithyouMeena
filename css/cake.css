@@ -1560,29 +1560,22 @@
     ====================================== */
 
     #birthdayMessage {
-        margin-top: 10px;
+    margin-top: 30px;
 
-        width: 90%;
+    width: 90%;
+    max-width: 350px;
 
-        max-width: 350px;
+    font-family: "Dancing Script", cursive;
 
-        font-family:
-            "Poppins",
-            sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 
-        font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 0;
 
-        font-weight: 400;
-
-        line-height: 1.45;
-
-        letter-spacing: 0;
-
-        text-shadow: none;
-
-        animation: none;
-    }
-
+    text-shadow: none;
+    animation: none;
+}
 
     /* ======================================
        ENDING JUDU
@@ -1606,7 +1599,7 @@
 
         max-width: 270px;
 
-        top: 43%;
+        top: 47%;
 
         padding: 14px;
 
