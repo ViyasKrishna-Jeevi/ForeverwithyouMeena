@@ -1,928 +1,1421 @@
-/\* ==========================================
-SECRET ARCHIVES
-PART 2A
-Layout + Quiz + Judu
-Mobile First
-\========================================== \*/
+/* ==========================================
+   SECRET ARCHIVES
+   PART 2A
+   Mobile First
+   Smaller Quiz + Top Header
+========================================== */
+
 #secretSection {
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-width: 100%;
-padding: 20px;
-position: relative;
-overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
+
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
 
 .secretContainer {
-width: 100%;
-max-width: 380px;
-margin: 170px auto 40px;
-display: flex;
-flex-direction: column;
-align-items: center;
-position: relative;
-}
-/\* ==========================================
-TITLE
-\========================================== \*/
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+    padding-top: 35px;
 
-/\* ==========================================
-FIXED HEADER
-\========================================== \*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* ==========================================
+   SECRET ARCHIVES HEADER
+========================================== */
 
 #secretHeading {
-position: fixed;
-top: 125px;
-left: 50%;
-transform: translateX(-50%);
-width: 100%;
-max-width: 380px;
-color: #FFD369;
-font-size: 34px;
-text-align: center;
-line-height: 1.2;
-z-index: 100;
+    position: relative;
+
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: 330px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #FFD369;
+
+    font-family: 'Great Vibes', cursive;
+    font-size: 34px;
+    line-height: 1.1;
+
+    text-align: center;
+
+    z-index: 100;
 }
 
+
 #secretSubHeading {
-position: fixed;
-top: 155px;
-left: 50%;
-transform: translateX(-50%);
-width: 90%;
-max-width: 380px;
-color: rgba(255,255,255,.9);
-text-align: center;
-font-size: 16px;
-line-height: 1.5;
-z-index: 100;
+    position: relative;
+
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: 320px;
+
+    margin: 6px 0 22px;
+
+    color: rgba(255,255,255,.9);
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.35;
+
+    z-index: 100;
 }
+
+
+/* ==========================================
+   HEADER ANIMATION
+========================================== */
+
 #secretHeading,
 #secretSubHeading {
-opacity: 0;
-visibility: hidden;
-transition: opacity .8s;
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-#quizCard {
-opacity: 0;
-visibility: hidden;
-transform: translateY(30px);
-transition: .8s;
+#secretHeading {
+    transform: translateY(-15px);
 }
+
+#secretSubHeading {
+    transform: translateY(-10px);
+}
+
 
 #secretHeading.showSecret,
 #secretSubHeading.showSecret {
-opacity: 1;
-visibility: visible;
-}
-#quizCard.showSecret {
-opacity: 1;
-visibility: visible;
-transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-/\* ==========================================
-QUIZ CARD
-\========================================== \*/
+
+/* ==========================================
+   QUIZ CARD
+========================================== */
 
 #quizCard {
-width: 100%;
-max-width: 360px;
-margin: 0 auto;
-background: rgba(255,255,255,.12);
-backdrop-filter: blur(12px);
-border: 1px solid rgba(255,255,255,.15);
-border-radius: 22px;
-padding: 22px;
-box-shadow: 0 20px 45px rgba(0,0,0,.30);
+    width: 100%;
+    max-width: 300px;
+
+    margin: 0 auto;
+
+    padding: 16px;
+
+    background: rgba(255,255,255,.12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
+
+
+#quizCard.showSecret {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   QUESTION NUMBER
+========================================== */
 
 #questionNumber {
-text-align: center;
-color: #FFD369;
-font-weight: bold;
-font-size: 15px;
-margin-bottom: 18px;
+    text-align: center;
+
+    color: #FFD369;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
 }
+
+
+/* ==========================================
+   QUESTION
+========================================== */
 
 #questionText {
-color: white;
-text-align: center;
-font-size: 22px;
-line-height: 1.5;
-margin-bottom: 26px;
+    color: white;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    margin-bottom: 18px;
 }
 
-/\* ==========================================
-OPTIONS
-\========================================== \*/
+
+/* ==========================================
+   OPTIONS
+========================================== */
 
 #quizOptions {
-display: flex;
-flex-direction: column;
-gap: 14px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    width: 100%;
 }
+
 
 .quizOption {
-border: none;
-border-radius: 18px;
-background: white;
-color: #333;
-font-size: 16px;
-font-family: 'Quicksand',sans-serif;
-padding: 17px;
-cursor: pointer;
-transition: .35s;
-box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    width: 100%;
+
+    border: none;
+    border-radius: 14px;
+
+    background: white;
+
+    color: #333;
+
+    font-size: 14px;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    min-height: 46px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 7px 15px rgba(0,0,0,.12);
 }
 
-```
+
+/* Desktop hover */
+
 .quizOption:hover {
     background: #ffe3ef;
-    transform: translateY(-3px);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.16);
 }
+
+
+/* Mobile tap */
 
 .quizOption:active {
-    transform: scale(.96);
+    transform: scale(.97);
 }
-```
 
-/\* ==========================================
-JUDU
-\========================================== \*/
+
+/* ==========================================
+   JUDU
+========================================== */
 
 #secretJudu {
-position: absolute;
-width: 100%;
-height: 220px;
-left: 0;
-bottom: 80px;
-display: none;
-pointer-events: none;
-z-index: 30;
+    position: absolute;
+
+    width: 100%;
+    height: 220px;
+
+    left: 0;
+    bottom: 80px;
+
+    display: none;
+
+    pointer-events: none;
+
+    z-index: 30;
 }
 
-/\* ==========================================
-DOG
-\========================================== \*/
+
+/* ==========================================
+   JUDU DOG
+========================================== */
 
 #secretJuduDog {
-position: absolute;
-width: 170px;
-left: -220px;
-bottom: 0;
+    position: absolute;
+
+    width: 170px;
+
+    left: -220px;
+    bottom: 0;
 }
 
-/\* ==========================================
-SPEECH BUBBLE
-\========================================== \*/
+
+/* ==========================================
+   SPEECH BUBBLE
+========================================== */
 
 #secretBubble {
-position: absolute;
-left: 135px;
-bottom: 105px;
-width: 190px;
-background: white;
-border-radius: 20px;
-padding: 16px;
-opacity: 0;
-transform: scale(.8);
-transition: .35s;
-box-shadow: 0 18px 35px rgba(0,0,0,.25);
+    position: absolute;
+
+    left: 135px;
+    bottom: 105px;
+
+    width: 190px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 16px;
+
+    opacity: 0;
+
+    transform: scale(.8);
+
+    transition: .35s;
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.25);
 }
 
-```
+
 #secretBubble.show {
     opacity: 1;
+
     transform: scale(1);
 }
+
 
 #secretBubble::after {
     content: "";
+
     position: absolute;
+
     left: 35px;
     bottom: -16px;
+
     border-top: 16px solid white;
+
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
 }
-```
+
 
 #secretBubbleTitle {
-font-weight: bold;
-color: #ff4d94;
-margin-bottom: 10px;
-font-size: 18px;
+    font-weight: bold;
+
+    color: #ff4d94;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
 }
+
 
 #secretBubbleText {
-color: #444;
-line-height: 1.6;
-font-size: 15px;
-white-space: pre-line;
+    color: #444;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+
+    white-space: pre-line;
 }
 
-/\* ==========================================
-SMALL ANIMATIONS
-\========================================== \*/
+
+/* ==========================================
+   SMALL ANIMATIONS
+========================================== */
 
 .fadeIn {
-animation: fadeIn .45s forwards;
+    animation: fadeIn .45s forwards;
 }
 
+
 .fadeOut {
-animation: fadeOut .45s forwards;
+    animation: fadeOut .45s forwards;
 }
+
 
 @keyframes fadeIn {
 
-```
-from {
-    opacity: 0;
-    transform: translateY(15px);
-}
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-```
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 }
+
 
 @keyframes fadeOut {
 
-```
-from {
-    opacity: 1;
-}
+    from {
+        opacity: 1;
+    }
 
-to {
-    opacity: 0;
-}
-```
+    to {
+        opacity: 0;
+    }
 
 }
 
-/\* ==========================================
-SECRET FOLDER
-\========================================== \*/
+
+/* ==========================================
+   SECRET FOLDER
+========================================== */
 
 #folderContainer {
-display: none;
-width: 100%;
-margin-top: 40px;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-animation: folderDrop .7s ease;
+    display: none;
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: folderDrop .7s ease;
 }
 
-/\* Folder \*/
+
+/* ==========================================
+   FOLDER
+========================================== */
 
 #folder {
-position: relative;
-width: 240px;
-height: 165px;
-cursor: pointer;
-transition: .4s;
+    position: relative;
+
+    width: 220px;
+    height: 150px;
+
+    cursor: pointer;
+
+    transition: .4s;
 }
 
-/\* Back \*/
+
+/* ==========================================
+   FOLDER BACK
+========================================== */
 
 .folderBack {
-position: absolute;
-inset: 0;
-background: #e8b647;
-border-radius: 16px;
-z-index: 1;
+    position: absolute;
+
+    inset: 0;
+
+    background: #e8b647;
+
+    border-radius: 16px;
+
+    z-index: 1;
 }
 
-/\* Paper \*/
+
+/* ==========================================
+   FOLDER PAPER
+========================================== */
 
 .folderPaper {
-position: absolute;
-left: 15px;
-right: 15px;
-top: 25px;
-height: 120px;
-background: #fffefb;
-border-radius: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 42px;
-transform: translateY(60px);
-transition: .8s;
-z-index: 2;
-box-shadow: 0 8px 18px rgba(0,0,0,.15);
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    top: 25px;
+
+    height: 110px;
+
+    background: #fffefb;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 38px;
+
+    transform: translateY(60px);
+
+    transition: .8s;
+
+    z-index: 2;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.15);
 }
 
-/\* Front \*/
+
+/* ==========================================
+   FOLDER FRONT
+========================================== */
 
 .folderFront {
-position: absolute;
-left: 0;
-right: 0;
-bottom: 0;
-height: 120px;
-background: linear-gradient(#ffd86c,#efb53d);
-border-radius: 14px;
-z-index: 4;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-box-shadow: 0 18px 35px rgba(0,0,0,.28);
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 110px;
+
+    background:
+        linear-gradient(
+            #ffd86c,
+            #efb53d
+        );
+
+    border-radius: 14px;
+
+    z-index: 4;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.28);
 }
 
-/\* Flap \*/
+
+/* ==========================================
+   FOLDER FLAP
+========================================== */
 
 .folderFlap {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 85px;
-background: #ffde7d;
-clip-path: polygon(0 0,100% 0,50% 100%);
-transform-origin: top;
-transition: .8s;
-z-index: 5;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background: #ffde7d;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top;
+
+    transition: .8s;
+
+    z-index: 5;
 }
 
-/\* Lock \*/
+
+/* ==========================================
+   LOCK
+========================================== */
 
 #folderLock {
-font-size: 46px;
-margin-bottom: 8px;
-animation: lockGlow 2s infinite;
+    font-size: 42px;
+
+    margin-bottom: 6px;
+
+    animation:
+        lockGlow 2s infinite;
 }
 
-/\* Title \*/
+
+/* ==========================================
+   FOLDER TITLE
+========================================== */
 
 #folderTitle {
-color: #8b0000;
-font-weight: bold;
-letter-spacing: 2px;
-font-size: 18px;
+    color: #8b0000;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    font-size: 17px;
 }
 
-/\* Subtitle \*/
+
+/* ==========================================
+   FOLDER SUBTITLE
+========================================== */
 
 #folderSubtitle {
-margin-top: 5px;
-color: #333;
-font-size: 13px;
+    margin-top: 5px;
+
+    color: #333;
+
+    font-size: 12px;
 }
 
-/\* Hint \*/
+
+/* ==========================================
+   FOLDER HINT
+========================================== */
 
 #folderHint {
-margin-top: 18px;
-color: white;
-opacity: .85;
-font-size: 15px;
+    margin-top: 15px;
+
+    color: white;
+
+    opacity: .85;
+
+    font-size: 14px;
 }
 
-/\* ==========================================
-OPEN
-\========================================== \*/
+
+/* ==========================================
+   FOLDER OPEN
+========================================== */
 
 #folder.open .folderFlap {
-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
+
 
 #folder.open .folderPaper {
-transform: translateY(-55px);
+    transform: translateY(-55px);
 }
+
 
 #folder.open #folderLock {
-transform: scale(0);
-opacity: 0;
+    transform: scale(0);
+
+    opacity: 0;
 }
 
-/\* ==========================================
-SHAKE
-\========================================== \*/
+
+/* ==========================================
+   FOLDER SHAKE
+========================================== */
 
 .folderShake {
-animation: folderShake .45s;
+    animation:
+        folderShake .45s;
 }
+
 
 @keyframes folderShake {
 
-```
-0% {
-    transform: rotate(0deg);
-}
+    0% {
+        transform: rotate(0deg);
+    }
 
-20% {
-    transform: rotate(-3deg);
-}
+    20% {
+        transform: rotate(-3deg);
+    }
 
-40% {
-    transform: rotate(3deg);
-}
+    40% {
+        transform: rotate(3deg);
+    }
 
-60% {
-    transform: rotate(-2deg);
-}
+    60% {
+        transform: rotate(-2deg);
+    }
 
-80% {
-    transform: rotate(2deg);
-}
+    80% {
+        transform: rotate(2deg);
+    }
 
-100% {
-    transform: rotate(0deg);
-}
-```
+    100% {
+        transform: rotate(0deg);
+    }
 
 }
 
-/\* ==========================================
-LOCK GLOW
-\========================================== \*/
+
+/* ==========================================
+   LOCK GLOW
+========================================== */
 
 @keyframes lockGlow {
 
-```
-0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0px gold);
+    0% {
+        transform: scale(1);
+
+        filter:
+            drop-shadow(0 0 0px gold);
+    }
+
+    50% {
+        transform: scale(1.08);
+
+        filter:
+            drop-shadow(0 0 10px gold);
+    }
+
+    100% {
+        transform: scale(1);
+
+        filter:
+            drop-shadow(0 0 0px gold);
+    }
+
 }
 
-50% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 10px gold);
-}
 
-100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0px gold);
-}
-```
-
-}
-
-/\* ==========================================
-DROP
-\========================================== \*/
+/* ==========================================
+   FOLDER DROP
+========================================== */
 
 @keyframes folderDrop {
 
-```
-from {
-    transform: translateY(-250px);
-    opacity: 0;
+    from {
+        transform: translateY(-250px);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+
+        opacity: 1;
+    }
+
 }
 
-to {
-    transform: translateY(0);
-    opacity: 1;
-}
-```
 
-}
-
-/\* ==========================================
-SECRET FILE
-\========================================== \*/
+/* ==========================================
+   SECRET FILE
+========================================== */
 
 #secretFile {
-display: none;
-width: 100%;
-max-width: 360px;
-margin-top: 35px;
-background: #fffdf8;
-border-radius: 22px;
-overflow: hidden;
-box-shadow: 0 25px 55px rgba(0,0,0,.35);
-animation: fileAppear .6s ease;
-border: 2px solid #f1e3b6;
+    display: none;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin-top: 30px;
+
+    background: #fffdf8;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.35);
+
+    animation:
+        fileAppear .6s ease;
+
+    border:
+        2px solid #f1e3b6;
 }
 
-/\* ==========================================
-FILE HEADER
-\========================================== \*/
+
+/* ==========================================
+   FILE HEADER
+========================================== */
 
 #fileHeader {
-display: flex;
-align-items: center;
-background: linear-gradient(90deg,#ff4d94,#ff82b8);
-color: white;
-padding: 16px 20px;
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d94,
+            #ff82b8
+        );
+
+    color: white;
+
+    padding: 14px 18px;
 }
+
 
 #fileDot {
-width: 14px;
-height: 14px;
-border-radius: 50%;
-background: white;
-margin-right: 12px;
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    margin-right: 10px;
 }
+
 
 #fileTitle {
-font-size: 20px;
-font-weight: bold;
-letter-spacing: 1px;
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
 }
 
-/\* ==========================================
-CONFIDENTIAL STAMP
-\========================================== \*/
+
+/* ==========================================
+   CONFIDENTIAL STAMP
+========================================== */
 
 #fileStamp {
-width: fit-content;
-margin: 22px auto 0;
-padding: 8px 18px;
-border: 3px solid crimson;
-color: crimson;
-font-size: 15px;
-font-weight: bold;
-border-radius: 50px;
-transform: rotate(-12deg);
-letter-spacing: 2px;
-opacity: .8;
+    width: fit-content;
+
+    margin: 20px auto 0;
+
+    padding: 7px 16px;
+
+    border:
+        3px solid crimson;
+
+    color: crimson;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    border-radius: 50px;
+
+    transform: rotate(-12deg);
+
+    letter-spacing: 2px;
+
+    opacity: .8;
 }
 
-/\* ==========================================
-PAPER
-\========================================== \*/
+
+/* ==========================================
+   FILE BODY
+========================================== */
 
 #fileBody {
-padding: 28px;
-min-height: 270px;
-background: repeating-linear-gradient( white, white 30px, #ececec 31px );
+    padding: 22px;
+
+    min-height: 240px;
+
+    background:
+        repeating-linear-gradient(
+            white,
+            white 30px,
+            #ececec 31px
+        );
 }
 
-/\* ==========================================
-FILE CONTENT
-\========================================== \*/
+
+/* ==========================================
+   FILE CONTENT
+========================================== */
 
 #fileContent {
-color: #444;
-font-size: 17px;
-line-height: 1.5;
-white-space: pre-line;
-font-family: 'Italianno',cursive;
+    color: #444;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    white-space: pre-line;
+
+    font-family:
+        'Italianno',
+        cursive;
 }
 
-/\* ==========================================
-CONTINUE BUTTON
-\========================================== \*/
+
+/* ==========================================
+   CONTINUE BUTTON
+========================================== */
 
 #nextSecret {
-display: block;
-width: 280px;
-height: 62px;
-margin: 35px auto 0;
-border: none;
-border-radius: 50px;
-background: linear-gradient(90deg,#ff4d94,#ff7fb6);
-color: #fff;
-font-size: 20px;
-font-weight: bold;
-cursor: pointer;
-transition: .35s;
+    display: block;
+
+    width: 260px;
+    height: 56px;
+
+    margin: 30px auto 0;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d94,
+            #ff7fb6
+        );
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-```
+
 #nextSecret:hover {
     letter-spacing: 1px;
-    background: linear-gradient(90deg,#ff2c84,#ff5aa1);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2c84,
+            #ff5aa1
+        );
 }
+
 
 #nextSecret:active {
     transform: scale(.98);
 }
-```
 
-/\* ==========================================
-FILE POP
-\========================================== \*/
+
+/* ==========================================
+   FILE POP
+========================================== */
 
 @keyframes fileAppear {
 
-```
-from {
-    opacity: 0;
-    transform: translateY(80px) scale(.85);
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            scale(.85);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
 }
 
-to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-```
-
-}
 
 .pulseButton {
-animation: pulse 1.5s infinite;
+    animation:
+        pulse 1.5s infinite;
 }
+
 
 @keyframes pulse {
 
-```
-0% {
-    transform: scale(1);
-}
+    0% {
+        transform: scale(1);
+    }
 
-50% {
-    transform: scale(1.04);
-    box-shadow: 0 0 18px rgba(255,77,148,.5);
-}
+    50% {
+        transform: scale(1.04);
 
-100% {
-    transform: scale(1);
-}
-```
+        box-shadow:
+            0 0 18px
+            rgba(255,77,148,.5);
+    }
 
-}
-
-/\* ==========================================
-FLOATING HEARTS
-\========================================== \*/
-
-.secretHeart {
-position: absolute;
-bottom: 120px;
-font-size: 24px;
-opacity: 0;
-pointer-events: none;
-animation: heartFloat 3s linear forwards;
-}
-
-@keyframes heartFloat {
-
-```
-0% {
-    opacity: 0;
-    transform: translateY(0) scale(.5);
-}
-
-20% {
-    opacity: 1;
-}
-
-100% {
-    opacity: 0;
-    transform: translateY(-220px) scale(1.5);
-}
-```
+    100% {
+        transform: scale(1);
+    }
 
 }
 
-/\* ==========================================
-SPARKLES
-\========================================== \*/
 
-.sparkle {
-position: absolute;
-width: 8px;
-height: 8px;
-border-radius: 50%;
-background: white;
-box-shadow: 0 0 12px white;
-animation: sparkle .9s linear forwards;
-}
+/* ==========================================
+   BUTTON SHINE
+========================================== */
 
-@keyframes sparkle {
-
-```
-from {
-    opacity: 1;
-    transform: scale(.3);
-}
-
-to {
-    opacity: 0;
-    transform: translateY(-60px) scale(1.8);
-}
-```
-
-}
-
-/\* ==========================================
-SCREEN TRANSITION
-\========================================== \*/
-
-.secretFadeIn {
-animation: secretFadeIn .6s ease;
-}
-
-.secretFadeOut {
-animation: secretFadeOut .5s ease forwards;
-}
-
-@keyframes secretFadeIn {
-
-```
-from {
-    opacity: 0;
-    transform: translateY(25px);
-}
-
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-```
-
-}
-
-@keyframes secretFadeOut {
-
-```
-to {
-    opacity: 0;
-    transform: translateY(-25px);
-}
-```
-
-}
-
-/\* ==========================================
-BUTTON GLOW
-\========================================== \*/
-
-#nextSecret {
-position: relative;
-overflow: hidden;
-}
-
-```
 #nextSecret::before {
     content: "";
+
     position: absolute;
+
     top: 0;
     left: -120%;
+
     width: 60%;
     height: 100%;
-    background: rgba(255,255,255,.35);
-    transform: skewX(-25deg);
+
+    background:
+        rgba(255,255,255,.35);
+
+    transform:
+        skewX(-25deg);
 }
 
+
 #nextSecret:hover::before {
-    animation: shine 1s;
+    animation:
+        shine 1s;
 }
-```
+
 
 @keyframes shine {
 
-```
-from {
-    left: -120%;
-}
+    from {
+        left: -120%;
+    }
 
-to {
-    left: 150%;
-}
-```
+    to {
+        left: 150%;
+    }
 
 }
 
-/\* ==========================================
-MOBILE
-\========================================== \*/
 
-@media(max-width:480px) {
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
 
-```
-.secretContainer {
-    max-width: 340px;
+.secretHeart {
+    position: absolute;
+
+    bottom: 120px;
+
+    font-size: 24px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        heartFloat 3s linear forwards;
 }
 
-/* Heading */
 
-#secretHeading {
-    font-size: 30px;
-}
+@keyframes heartFloat {
 
-#secretSubHeading {
-    font-size: 15px;
-}
+    0% {
+        opacity: 0;
 
-/* Quiz */
+        transform:
+            translateY(0)
+            scale(.5);
+    }
 
-#quizCard {
-    padding: 20px;
-}
+    20% {
+        opacity: 1;
+    }
 
-#questionText {
-    font-size: 20px;
-}
+    100% {
+        opacity: 0;
 
-.quizOption {
-    font-size: 15px;
-    padding: 15px;
-}
-
-/* Judu */
-
-#secretJudu {
-    bottom: -300px;
-}
-
-#secretJuduDog {
-    width: 420px;
-}
-
-#secretBubble {
-    width: 180px;
-    left: 60px;
-    bottom: 300px;
-    font-size: 14px;
-}
-
-/* Folder */
-
-#folder {
-    width: 190px;
-    height: 135px;
-}
-
-.folderPaper {
-    width: 160px;
-}
-
-#folderTitle {
-    font-size: 16px;
-}
-
-#folderSubtitle {
-    font-size: 11px;
-}
-
-/* File */
-
-#secretFile {
-    max-width: 100%;
-}
-
-#fileBody {
-    padding: 20px;
-    min-height: 220px;
-}
-
-#fileContent {
-    font-size: 16px;
-    line-height: 1.9;
-}
-```
+        transform:
+            translateY(-220px)
+            scale(1.5);
+    }
 
 }
 
-/\* ==========================================
-TABLET
-\========================================== \*/
 
-@media(min-width:768px) {
+/* ==========================================
+   SPARKLES
+========================================== */
 
-```
-.secretContainer {
-    max-width: 500px;
+.sparkle {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 12px white;
+
+    animation:
+        sparkle .9s linear forwards;
 }
 
-#secretJuduDog {
-    width: 185px;
+
+@keyframes sparkle {
+
+    from {
+        opacity: 1;
+
+        transform:
+            scale(.3);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateY(-60px)
+            scale(1.8);
+    }
+
 }
 
-#secretBubble {
-    width: 250px;
-    left: 150px;
-}
-```
 
-}
+/* ==========================================
+   SCREEN TRANSITION
+========================================== */
 
-/\* ==========================================
-DESKTOP
-\========================================== \*/
-
-@media(min-width:1200px) {
-
-```
-.secretContainer {
-    max-width: 620px;
+.secretFadeIn {
+    animation:
+        secretFadeIn .6s ease;
 }
 
-#quizCard {
-    max-width: 500px;
+
+.secretFadeOut {
+    animation:
+        secretFadeOut .5s ease forwards;
 }
 
-#secretJuduDog {
-    width: 210px;
+
+@keyframes secretFadeIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
-#secretBubble {
-    width: 280px;
-    left: 180px;
+
+@keyframes secretFadeOut {
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+    }
+
 }
-```
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    #secretSection {
+        padding: 15px;
+    }
+
+    .secretContainer {
+        max-width: 310px;
+
+        padding-top: 28px;
+    }
+
+
+    /* Header */
+
+    #secretHeading {
+        font-size: 32px;
+    }
+
+    #secretSubHeading {
+        font-size: 13px;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* Quiz */
+
+    #quizCard {
+        max-width: 285px;
+
+        padding: 14px;
+
+        border-radius: 17px;
+    }
+
+
+    #questionNumber {
+        font-size: 12px;
+
+        margin-bottom: 8px;
+    }
+
+
+    #questionText {
+        font-size: 17px;
+
+        line-height: 1.3;
+
+        margin-bottom: 15px;
+    }
+
+
+    #quizOptions {
+        gap: 8px;
+    }
+
+
+    .quizOption {
+        font-size: 13px;
+
+        padding: 11px 8px;
+
+        min-height: 43px;
+
+        border-radius: 13px;
+    }
+
+
+    /* Judu */
+
+    #secretJudu {
+        bottom: -300px;
+    }
+
+    #secretJuduDog {
+        width: 420px;
+    }
+
+    #secretBubble {
+        width: 180px;
+
+        left: 60px;
+
+        bottom: 300px;
+
+        font-size: 14px;
+    }
+
+
+    /* Folder */
+
+    #folder {
+        width: 190px;
+
+        height: 135px;
+    }
+
+    .folderPaper {
+        width: 160px;
+    }
+
+    #folderTitle {
+        font-size: 16px;
+    }
+
+    #folderSubtitle {
+        font-size: 11px;
+    }
+
+
+    /* File */
+
+    #secretFile {
+        max-width: 100%;
+    }
+
+    #fileBody {
+        padding: 20px;
+
+        min-height: 220px;
+    }
+
+    #fileContent {
+        font-size: 16px;
+
+        line-height: 1.9;
+    }
+
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (min-width: 768px) {
+
+    .secretContainer {
+        max-width: 420px;
+
+        padding-top: 45px;
+    }
+
+
+    #secretHeading {
+        max-width: 420px;
+
+        font-size: 40px;
+    }
+
+
+    #secretSubHeading {
+        max-width: 400px;
+
+        font-size: 15px;
+    }
+
+
+    #quizCard {
+        max-width: 350px;
+
+        padding: 18px;
+    }
+
+
+    #questionText {
+        font-size: 20px;
+    }
+
+
+    .quizOption {
+        font-size: 15px;
+
+        padding: 14px;
+    }
+
+
+    #secretJuduDog {
+        width: 185px;
+    }
+
+
+    #secretBubble {
+        width: 250px;
+
+        left: 150px;
+    }
+
+}
+
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media (min-width: 1200px) {
+
+    .secretContainer {
+        max-width: 500px;
+
+        padding-top: 50px;
+    }
+
+
+    #secretHeading {
+        max-width: 500px;
+
+        font-size: 48px;
+    }
+
+
+    #secretSubHeading {
+        max-width: 450px;
+
+        font-size: 17px;
+
+        margin-bottom: 25px;
+    }
+
+
+    #quizCard {
+        max-width: 400px;
+
+        padding: 20px;
+    }
+
+
+    #questionText {
+        font-size: 22px;
+    }
+
+
+    .quizOption {
+        font-size: 16px;
+
+        padding: 15px;
+    }
+
+
+    #secretJuduDog {
+        width: 210px;
+    }
+
+
+    #secretBubble {
+        width: 280px;
+
+        left: 180px;
+    }
 
 }
