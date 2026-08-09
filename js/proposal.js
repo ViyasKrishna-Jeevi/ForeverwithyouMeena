@@ -755,8 +755,6 @@ function yesClicked() {
     explodeGoldenParticles();
     launchFireworks();
     screenFlash();
-    createFloatingHearts();
-
     explodeConfetti();
 
 
@@ -806,7 +804,7 @@ function showForeverScreen() {
 
     `;
 
-    createFloatingHearts();
+    startFloatingHearts();
 
     setTimeout(() => {
 
@@ -822,30 +820,44 @@ function showForeverScreen() {
         .onclick = startCake;
 
 }
-function createFloatingHearts() {
+let floatingHeartsInterval = null;
 
-    setInterval(() => {
+function startFloatingHearts() {
 
-        const heart =
-            document.createElement("div");
+    // Prevent multiple intervals
+    if (floatingHeartsInterval) return;
+
+    floatingHeartsInterval = setInterval(() => {
+
+        const heart = document.createElement("div");
 
         heart.className = "endingHeart";
+        heart.textContent = "❤️";
 
-        heart.innerHTML = "❤️";
-
-        heart.style.left =
-            Math.random() * 100 + "%";
+        heart.style.left = Math.random() * 100 + "%";
 
         document.body.appendChild(heart);
 
         setTimeout(() => {
-
             heart.remove();
-
         }, 5000);
 
-    }, 250);
+    }, 500);
+}
 
+
+function stopFloatingHearts() {
+
+    if (floatingHeartsInterval) {
+
+        clearInterval(floatingHeartsInterval);
+
+        floatingHeartsInterval = null;
+    }
+
+    document
+        .querySelectorAll(".endingHeart")
+        .forEach(el => el.remove());
 }
 function explodeHearts() {
 
@@ -983,6 +995,7 @@ let cakeStep = 0;
 // ==========================================
 
 function startCake() {
+    stopFloatingHearts();
 
     showSection("cakeSection");
     createCakeStars();
@@ -1894,7 +1907,7 @@ function typeBirthdayTitle() {
 
     const timer = setInterval(() => {
 
-        title.innerHTML += txt.charAt(i);
+        title.textContent += txt.charAt(i);
 
         i++;
 
@@ -1915,22 +1928,26 @@ function typeBirthdayTitle() {
 
 function typeBirthdayMessage() {
 
-    const box = document.getElementById("birthdayMessage");
+    const box =
+        document.getElementById("birthdayMessage");
 
-    const txt = `Today wasn't about the cake...
-                 or the surprises...
-                 It was about seeing your smile.
-                 Because...your smile
-                 is my favourite place.
-                 Happy Birthday,
-                 My Beautiful Meena.
-                 I Love You.`;
+    const txt =
+`Today wasn't about the cake...
+or the surprises...
+It was about seeing your smile.
+Because... your smile
+is my favourite place.
+Happy Birthday,
+My Beautiful Meena.
+I Love You.`;
 
     let i = 0;
 
+    box.textContent = "";
+
     const timer = setInterval(() => {
 
-        box.innerHTML += txt.charAt(i);
+        box.textContent += txt.charAt(i);
 
         i++;
 
@@ -1940,18 +1957,13 @@ function typeBirthdayMessage() {
 
             setTimeout(() => {
 
-                setTimeout(() => {
+                typeLoveQuestionBubble();
 
-                    typeLoveQuestionBubble();
-
-                }, 1800);
-
-            }, 1200);
+            }, 1800);
 
         }
 
-    }, 35);
-
+    }, 65);
 }
 
 async function saveLoveAnswer() {
