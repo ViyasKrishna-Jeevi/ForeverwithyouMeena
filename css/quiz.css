@@ -1,1823 +1,929 @@
-/* ==========================================
-   SECRET ARCHIVES
-   iPHONE 16 / 16 PRO MAX OPTIMIZED
-   PART 2A
-   Layout + Quiz + Judu + Folder + File
-========================================== */
-
-
-/* ==========================================
-   SECRET SECTION
-========================================== */
-
-#secretSection {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100dvh;
-    min-height: 100dvh;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding: 0 15px;
-
-    box-sizing: border-box;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior: contain;
-
-    z-index: 10;
+/\* ==========================================
+SECRET ARCHIVES
+PART 2A
+Layout + Quiz + Judu
+Mobile First
+\========================================== \*/
+\#secretSection {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+width: 100%;
+padding: 20px;
+position: relative;
+overflow: hidden;
 }
-
-
-/* ==========================================
-   MAIN CONTAINER
-========================================== */
 
 .secretContainer {
-    width: 100%;
-    max-width: 360px;
+width: 100%;
+max-width: 380px;
+margin: 170px auto 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+/\* ==========================================
+TITLE
+\========================================== \*/
 
-    margin: 0 auto;
+/\* ==========================================
+FIXED HEADER
+\========================================== \*/
 
-    padding-top:
-        calc(95px + env(safe-area-inset-top));
-
-    padding-bottom:
-        calc(40px + env(safe-area-inset-bottom));
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    position: relative;
-
-    box-sizing: border-box;
+\#secretHeading {
+position: fixed;
+top: 125px;
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+max-width: 380px;
+color: #FFD369;
+font-size: 34px;
+text-align: center;
+line-height: 1.2;
+z-index: 100;
 }
 
-
-/* ==========================================
-   TITLE
-========================================== */
-
-#secretHeading {
-    position: relative;
-
-    top: auto;
-    left: auto;
-
-    width: 100%;
-    max-width: 360px;
-
-    margin: 0;
-    padding: 0;
-
-    transform: none;
-
-    color: #FFD369;
-
-    font-size: 32px;
-    line-height: 1.15;
-
-    text-align: center;
-
-    z-index: 10;
+\#secretSubHeading {
+position: fixed;
+top: 155px;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+max-width: 380px;
+color: rgba(255,255,255,.9);
+text-align: center;
+font-size: 16px;
+line-height: 1.5;
+z-index: 100;
+}
+\#secretHeading,
+\#secretSubHeading {
+opacity: 0;
+visibility: hidden;
+transition: opacity .8s;
 }
 
-
-/* ==========================================
-   SUBTITLE
-========================================== */
-
-#secretSubHeading {
-    position: relative;
-
-    top: auto;
-    left: auto;
-
-    width: 100%;
-    max-width: 350px;
-
-    margin: 8px 0 26px;
-    padding: 0;
-
-    transform: none;
-
-    color: rgba(255,255,255,.9);
-
-    font-size: 15px;
-    line-height: 1.45;
-
-    text-align: center;
-
-    z-index: 10;
+\#quizCard {
+opacity: 0;
+visibility: hidden;
+transform: translateY(30px);
+transition: .8s;
 }
 
-
-/* ==========================================
-   HEADER ANIMATION
-========================================== */
-
-#secretHeading,
-#secretSubHeading {
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+\#secretHeading.showSecret,
+\#secretSubHeading.showSecret {
+opacity: 1;
+visibility: visible;
 }
 
-
-#secretHeading.showSecret,
-#secretSubHeading.showSecret {
-    opacity: 1;
-    visibility: visible;
+\#quizCard.showSecret {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
 }
 
+/\* ==========================================
+QUIZ CARD
+\========================================== \*/
 
-/* ==========================================
-   QUIZ CARD
-========================================== */
-
-#quizCard {
-    position: relative;
-
-    width: 100%;
-    max-width: 360px;
-
-    margin: 0 auto;
-
-    padding: 20px 18px;
-
-    box-sizing: border-box;
-
-    background: rgba(255,255,255,.12);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(255,255,255,.15);
-
-    border-radius: 22px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.30);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(30px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease,
-        visibility .8s ease;
-
-    z-index: 5;
+\#quizCard {
+width: 100%;
+max-width: 360px;
+margin: 0 auto;
+background: rgba(255,255,255,.12);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255,255,255,.15);
+border-radius: 22px;
+padding: 22px;
+box-shadow: 0 20px 45px rgba(0,0,0,.30);
 }
 
-
-#quizCard.showSecret {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: translateY(0);
+\#questionNumber {
+text-align: center;
+color: #FFD369;
+font-weight: bold;
+font-size: 15px;
+margin-bottom: 18px;
 }
 
-
-/* ==========================================
-   QUESTION NUMBER
-========================================== */
-
-#questionNumber {
-    margin: 0 0 14px;
-
-    text-align: center;
-
-    color: #FFD369;
-
-    font-size: 14px;
-
-    font-weight: bold;
+\#questionText {
+color: white;
+text-align: center;
+font-size: 22px;
+line-height: 1.5;
+margin-bottom: 26px;
 }
 
+/\* ==========================================
+OPTIONS
+\========================================== \*/
 
-/* ==========================================
-   QUESTION
-========================================== */
-
-#questionText {
-    margin: 0 0 24px;
-
-    color: white;
-
-    text-align: center;
-
-    font-size: 20px;
-
-    line-height: 1.45;
+\#quizOptions {
+display: flex;
+flex-direction: column;
+gap: 14px;
 }
-
-
-/* ==========================================
-   OPTIONS
-========================================== */
-
-#quizOptions {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 14px;
-}
-
 
 .quizOption {
-    width: 100%;
-
-    min-height: 62px;
-
-    padding: 15px 12px;
-
-    box-sizing: border-box;
-
-    border: none;
-
-    border-radius: 18px;
-
-    background: white;
-
-    color: #333;
-
-    font-size: 15px;
-
-    line-height: 1.35;
-
-    font-family: 'Quicksand', sans-serif;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
-
-    box-shadow:
-        0 10px 20px rgba(0,0,0,.12);
-
-    transition:
-        transform .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
+border: none;
+border-radius: 18px;
+background: white;
+color: #333;
+font-size: 16px;
+font-family: 'Quicksand',sans-serif;
+padding: 17px;
+cursor: pointer;
+transition: .35s;
+box-shadow: 0 10px 20px rgba(0,0,0,.12);
 }
 
-
-/* Desktop hover */
-
-@media (hover: hover) {
-
-    .quizOption:hover {
-        background: #ffe3ef;
-
-        transform: translateY(-3px);
-
-        box-shadow:
-            0 14px 25px rgba(0,0,0,.16);
-    }
-
+```
+.quizOption:hover {
+    background: #ffe3ef;
+    transform: translateY(-3px);
 }
-
-
-/* Phone tap */
 
 .quizOption:active {
     transform: scale(.96);
 }
+```
 
+/\* ==========================================
+JUDU
+\========================================== \*/
 
-/* ==========================================
-   JUDU CONTAINER
-========================================== */
-
-#secretJudu {
-    position: absolute;
-
-    width: 100%;
-
-    height: 220px;
-
-    left: 0;
-
-    bottom: 30px;
-
-    display: none;
-
-    pointer-events: none;
-
-    z-index: 30;
-
-    overflow: visible;
+\#secretJudu {
+position: absolute;
+width: 100%;
+height: 220px;
+left: 0;
+bottom: 80px;
+display: none;
+pointer-events: none;
+z-index: 30;
 }
 
+/\* ==========================================
+DOG
+\========================================== \*/
 
-/* ==========================================
-   JUDU DOG
-========================================== */
-
-#secretJuduDog {
-    position: absolute;
-
-    width: 180px;
-
-    height: auto;
-
-    left: -210px;
-
-    bottom: 0;
-
-    max-width: none;
-
-    user-select: none;
-
-    pointer-events: none;
+\#secretJuduDog {
+position: absolute;
+width: 170px;
+left: -220px;
+bottom: 0;
 }
 
+/\* ==========================================
+SPEECH BUBBLE
+\========================================== \*/
 
-/* ==========================================
-   JUDU SPEECH BUBBLE
-========================================== */
-
-#secretBubble {
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 115px;
-
-    width: 190px;
-
-    max-width: calc(100vw - 80px);
-
-    box-sizing: border-box;
-
-    background: white;
-
-    color: #333;
-
-    border-radius: 20px;
-
-    padding: 16px;
-
-    opacity: 0;
-
-    transform:
-        translateX(-50%)
-        scale(.8);
-
-    transition:
-        opacity .35s ease,
-        transform .35s ease;
-
-    box-shadow:
-        0 18px 35px rgba(0,0,0,.25);
-
-    z-index: 40;
+\#secretBubble {
+position: absolute;
+left: 135px;
+bottom: 105px;
+width: 190px;
+background: white;
+border-radius: 20px;
+padding: 16px;
+opacity: 0;
+transform: scale(.8);
+transition: .35s;
+box-shadow: 0 18px 35px rgba(0,0,0,.25);
 }
 
-
+```
 #secretBubble.show {
     opacity: 1;
-
-    transform:
-        translateX(-50%)
-        scale(1);
+    transform: scale(1);
 }
-
-
-/* ==========================================
-   BUBBLE TAIL
-========================================== */
 
 #secretBubble::after {
     content: "";
-
     position: absolute;
-
     left: 35px;
-
     bottom: -16px;
+    border-top: 16px solid white;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+```
 
-    border-top:
-        16px solid white;
-
-    border-left:
-        12px solid transparent;
-
-    border-right:
-        12px solid transparent;
+\#secretBubbleTitle {
+font-weight: bold;
+color: #ff4d94;
+margin-bottom: 10px;
+font-size: 18px;
 }
 
-
-/* ==========================================
-   BUBBLE TITLE
-========================================== */
-
-#secretBubbleTitle {
-    margin-bottom: 10px;
-
-    color: #ff4d94;
-
-    font-size: 18px;
-
-    font-weight: bold;
+\#secretBubbleText {
+color: #444;
+line-height: 1.6;
+font-size: 15px;
+white-space: pre-line;
 }
 
-
-/* ==========================================
-   BUBBLE TEXT
-========================================== */
-
-#secretBubbleText {
-    color: #444;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-
-    white-space: pre-line;
-}
-
-
-/* ==========================================
-   SMALL ANIMATIONS
-========================================== */
+/\* ==========================================
+SMALL ANIMATIONS
+\========================================== \*/
 
 .fadeIn {
-    animation:
-        fadeIn .45s forwards;
+animation: fadeIn .45s forwards;
 }
-
 
 .fadeOut {
-    animation:
-        fadeOut .45s forwards;
+animation: fadeOut .45s forwards;
 }
-
 
 @keyframes fadeIn {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
+```
+from {
+    opacity: 0;
+    transform: translateY(15px);
 }
 
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+}
 
 @keyframes fadeOut {
 
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-
+```
+from {
+    opacity: 1;
 }
 
-
-/* ==========================================
-   SECRET FOLDER CONTAINER
-========================================== */
-
-#folderContainer {
-    display: none;
-
-    width: 100%;
-
-    margin-top: 35px;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    animation:
-        folderDrop .7s ease;
-}
-
-
-/* ==========================================
-   FOLDER
-========================================== */
-
-#folder {
-    position: relative;
-
-    width: 220px;
-
-    height: 150px;
-
-    cursor: pointer;
-
-    transition:
-        transform .4s ease;
-
-    perspective: 700px;
-}
-
-
-/* ==========================================
-   FOLDER BACK
-========================================== */
-
-.folderBack {
-    position: absolute;
-
-    inset: 0;
-
-    background: #e8b647;
-
-    border-radius: 16px;
-
-    z-index: 1;
-}
-
-
-/* ==========================================
-   FOLDER PAPER
-========================================== */
-
-.folderPaper {
-    position: absolute;
-
-    left: 15px;
-
-    right: 15px;
-
-    top: 25px;
-
-    height: 110px;
-
-    background: #fffefb;
-
-    border-radius: 10px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-size: 38px;
-
-    transform:
-        translateY(60px);
-
-    transition:
-        transform .8s ease;
-
-    z-index: 2;
-
-    box-shadow:
-        0 8px 18px rgba(0,0,0,.15);
-}
-
-
-/* ==========================================
-   FOLDER FRONT
-========================================== */
-
-.folderFront {
-    position: absolute;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    height: 108px;
-
-    background:
-        linear-gradient(
-            #ffd86c,
-            #efb53d
-        );
-
-    border-radius: 14px;
-
-    z-index: 4;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    box-shadow:
-        0 18px 35px rgba(0,0,0,.28);
-}
-
-
-/* ==========================================
-   FOLDER FLAP
-========================================== */
-
-.folderFlap {
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 78px;
-
-    background: #ffde7d;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin: top;
-
-    transition:
-        transform .8s ease;
-
-    z-index: 5;
-}
-
-
-/* ==========================================
-   FOLDER LOCK
-========================================== */
-
-#folderLock {
-    font-size: 42px;
-
-    margin-bottom: 6px;
-
-    animation:
-        lockGlow 2s infinite;
-}
-
-
-/* ==========================================
-   FOLDER TITLE
-========================================== */
-
-#folderTitle {
-    color: #8b0000;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    font-size: 17px;
-}
-
-
-/* ==========================================
-   FOLDER SUBTITLE
-========================================== */
-
-#folderSubtitle {
-    margin-top: 4px;
-
-    color: #333;
-
-    font-size: 12px;
-}
-
-
-/* ==========================================
-   FOLDER HINT
-========================================== */
-
-#folderHint {
-    margin-top: 16px;
-
-    color: white;
-
-    opacity: .85;
-
-    font-size: 14px;
-
-    text-align: center;
-}
-
-
-/* ==========================================
-   FOLDER OPEN
-========================================== */
-
-#folder.open .folderFlap {
-    transform:
-        rotateX(180deg);
-}
-
-
-#folder.open .folderPaper {
-    transform:
-        translateY(-50px);
-}
-
-
-#folder.open #folderLock {
-    transform:
-        scale(0);
-
+to {
     opacity: 0;
 }
+```
 
-
-/* ==========================================
-   FOLDER SHAKE
-========================================== */
-
-.folderShake {
-    animation:
-        folderShake .45s;
 }
 
+/\* ==========================================
+SECRET FOLDER
+\========================================== \*/
+
+\#folderContainer {
+display: none;
+width: 100%;
+margin-top: 40px;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+animation: folderDrop .7s ease;
+}
+
+/\* Folder \*/
+
+\#folder {
+position: relative;
+width: 240px;
+height: 165px;
+cursor: pointer;
+transition: .4s;
+}
+
+/\* Back \*/
+
+.folderBack {
+position: absolute;
+inset: 0;
+background: #e8b647;
+border-radius: 16px;
+z-index: 1;
+}
+
+/\* Paper \*/
+
+.folderPaper {
+position: absolute;
+left: 15px;
+right: 15px;
+top: 25px;
+height: 120px;
+background: #fffefb;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 42px;
+transform: translateY(60px);
+transition: .8s;
+z-index: 2;
+box-shadow: 0 8px 18px rgba(0,0,0,.15);
+}
+
+/\* Front \*/
+
+.folderFront {
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+height: 120px;
+background: linear-gradient(#ffd86c,#efb53d);
+border-radius: 14px;
+z-index: 4;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: 0 18px 35px rgba(0,0,0,.28);
+}
+
+/\* Flap \*/
+
+.folderFlap {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 85px;
+background: #ffde7d;
+clip-path: polygon(0 0,100% 0,50% 100%);
+transform-origin: top;
+transition: .8s;
+z-index: 5;
+}
+
+/\* Lock \*/
+
+\#folderLock {
+font-size: 46px;
+margin-bottom: 8px;
+animation: lockGlow 2s infinite;
+}
+
+/\* Title \*/
+
+\#folderTitle {
+color: #8b0000;
+font-weight: bold;
+letter-spacing: 2px;
+font-size: 18px;
+}
+
+/\* Subtitle \*/
+
+\#folderSubtitle {
+margin-top: 5px;
+color: #333;
+font-size: 13px;
+}
+
+/\* Hint \*/
+
+\#folderHint {
+margin-top: 18px;
+color: white;
+opacity: .85;
+font-size: 15px;
+}
+
+/\* ==========================================
+OPEN
+\========================================== \*/
+
+\#folder.open .folderFlap {
+transform: rotateX(180deg);
+}
+
+\#folder.open .folderPaper {
+transform: translateY(-55px);
+}
+
+\#folder.open #folderLock {
+transform: scale(0);
+opacity: 0;
+}
+
+/\* ==========================================
+SHAKE
+\========================================== \*/
+
+.folderShake {
+animation: folderShake .45s;
+}
 
 @keyframes folderShake {
 
-    0% {
-        transform:
-            rotate(0deg);
-    }
+```
+0% {
+    transform: rotate(0deg);
+}
 
-    20% {
-        transform:
-            rotate(-3deg);
-    }
+20% {
+    transform: rotate(-3deg);
+}
 
-    40% {
-        transform:
-            rotate(3deg);
-    }
+40% {
+    transform: rotate(3deg);
+}
 
-    60% {
-        transform:
-            rotate(-2deg);
-    }
+60% {
+    transform: rotate(-2deg);
+}
 
-    80% {
-        transform:
-            rotate(2deg);
-    }
+80% {
+    transform: rotate(2deg);
+}
 
-    100% {
-        transform:
-            rotate(0deg);
-    }
+100% {
+    transform: rotate(0deg);
+}
+```
 
 }
 
-
-/* ==========================================
-   LOCK GLOW
-========================================== */
+/\* ==========================================
+LOCK GLOW
+\========================================== \*/
 
 @keyframes lockGlow {
 
-    0% {
-        transform:
-            scale(1);
+```
+0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px gold);
+}
 
-        filter:
-            drop-shadow(
-                0 0 0 gold
-            );
-    }
+50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px gold);
+}
 
-    50% {
-        transform:
-            scale(1.08);
-
-        filter:
-            drop-shadow(
-                0 0 10px gold
-            );
-    }
-
-    100% {
-        transform:
-            scale(1);
-
-        filter:
-            drop-shadow(
-                0 0 0 gold
-            );
-    }
+100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px gold);
+}
+```
 
 }
 
-
-/* ==========================================
-   FOLDER DROP
-========================================== */
+/\* ==========================================
+DROP
+\========================================== \*/
 
 @keyframes folderDrop {
 
-    from {
-        transform:
-            translateY(-250px);
+```
+from {
+    transform: translateY(-250px);
+    opacity: 0;
+}
 
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translateY(0);
-
-        opacity: 1;
-    }
+to {
+    transform: translateY(0);
+    opacity: 1;
+}
+```
 
 }
 
+/\* ==========================================
+SECRET FILE
+\========================================== \*/
 
-/* ==========================================
-   SECRET FILE
-========================================== */
-
-#secretFile {
-    display: none;
-
-    width: 100%;
-
-    max-width: 360px;
-
-    margin-top: 30px;
-
-    background: #fffdf8;
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 25px 55px rgba(0,0,0,.35);
-
-    animation:
-        fileAppear .6s ease;
-
-    border:
-        2px solid #f1e3b6;
-
-    box-sizing: border-box;
+\#secretFile {
+display: none;
+width: 100%;
+max-width: 360px;
+margin-top: 35px;
+background: #fffdf8;
+border-radius: 22px;
+overflow: hidden;
+box-shadow: 0 25px 55px rgba(0,0,0,.35);
+animation: fileAppear .6s ease;
+border: 2px solid #f1e3b6;
 }
 
+/\* ==========================================
+FILE HEADER
+\========================================== \*/
 
-/* ==========================================
-   FILE HEADER
-========================================== */
-
-#fileHeader {
-    display: flex;
-
-    align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff4d94,
-            #ff82b8
-        );
-
-    color: white;
-
-    padding: 15px 18px;
+\#fileHeader {
+display: flex;
+align-items: center;
+background: linear-gradient(90deg,#ff4d94,#ff82b8);
+color: white;
+padding: 16px 20px;
 }
 
-
-#fileDot {
-    width: 13px;
-
-    height: 13px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    margin-right: 11px;
-
-    flex-shrink: 0;
+\#fileDot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background: white;
+margin-right: 12px;
 }
 
+\#fileTitle {
+font-size: 20px;
+font-weight: bold;
+letter-spacing: 1px;
+}
 
-#fileTitle {
-    font-size: 19px;
+/\* ==========================================
+CONFIDENTIAL STAMP
+\========================================== \*/
 
-    font-weight: bold;
+\#fileStamp {
+width: fit-content;
+margin: 22px auto 0;
+padding: 8px 18px;
+border: 3px solid crimson;
+color: crimson;
+font-size: 15px;
+font-weight: bold;
+border-radius: 50px;
+transform: rotate(-12deg);
+letter-spacing: 2px;
+opacity: .8;
+}
 
+/\* ==========================================
+PAPER
+\========================================== \*/
+
+\#fileBody {
+padding: 28px;
+min-height: 270px;
+background: repeating-linear-gradient( white, white 30px, #ececec 31px );
+}
+
+/\* ==========================================
+FILE CONTENT
+\========================================== \*/
+
+\#fileContent {
+color: #444;
+font-size: 17px;
+line-height: 1.5;
+white-space: pre-line;
+font-family: 'Italianno',cursive;
+}
+
+/\* ==========================================
+CONTINUE BUTTON
+\========================================== \*/
+
+\#nextSecret {
+display: block;
+width: 280px;
+height: 62px;
+margin: 35px auto 0;
+border: none;
+border-radius: 50px;
+background: linear-gradient(90deg,#ff4d94,#ff7fb6);
+color: #fff;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer;
+transition: .35s;
+}
+
+```
+#nextSecret:hover {
     letter-spacing: 1px;
+    background: linear-gradient(90deg,#ff2c84,#ff5aa1);
 }
-
-
-/* ==========================================
-   CONFIDENTIAL STAMP
-========================================== */
-
-#fileStamp {
-    width: fit-content;
-
-    margin:
-        20px auto 0;
-
-    padding:
-        7px 16px;
-
-    border:
-        3px solid crimson;
-
-    color: crimson;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    border-radius: 50px;
-
-    transform:
-        rotate(-12deg);
-
-    letter-spacing: 2px;
-
-    opacity: .8;
-}
-
-
-/* ==========================================
-   FILE BODY
-========================================== */
-
-#fileBody {
-    padding: 22px;
-
-    min-height: 240px;
-
-    background:
-        repeating-linear-gradient(
-            white,
-            white 30px,
-            #ececec 31px
-        );
-
-    box-sizing: border-box;
-}
-
-
-/* ==========================================
-   FILE CONTENT
-========================================== */
-
-#fileContent {
-    color: #444;
-
-    font-size: 16px;
-
-    line-height: 1.75;
-
-    white-space: pre-line;
-
-    font-family:
-        'Italianno',
-        cursive;
-}
-
-
-/* ==========================================
-   CONTINUE BUTTON
-========================================== */
-
-#nextSecret {
-    display: block;
-
-    width: min(280px, 90%);
-
-    min-height: 58px;
-
-    margin:
-        30px auto 0;
-
-    padding:
-        12px 20px;
-
-    border: none;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff4d94,
-            #ff7fb6
-        );
-
-    color: #fff;
-
-    font-size: 19px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        transform .35s ease,
-        background .35s ease;
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-@media (hover: hover) {
-
-    #nextSecret:hover {
-        letter-spacing: 1px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #ff2c84,
-                #ff5aa1
-            );
-    }
-
-}
-
 
 #nextSecret:active {
-    transform:
-        scale(.98);
+    transform: scale(.98);
 }
+```
 
-
-/* ==========================================
-   FILE POP
-========================================== */
+/\* ==========================================
+FILE POP
+\========================================== \*/
 
 @keyframes fileAppear {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(80px)
-            scale(.85);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
+```
+from {
+    opacity: 0;
+    transform: translateY(80px) scale(.85);
 }
 
+to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+```
 
-/* ==========================================
-   PULSE BUTTON
-========================================== */
+}
 
 .pulseButton {
-    animation:
-        pulse 1.5s infinite;
+animation: pulse 1.5s infinite;
 }
-
 
 @keyframes pulse {
 
-    0% {
-        transform:
-            scale(1);
-    }
+```
+0% {
+    transform: scale(1);
+}
 
-    50% {
-        transform:
-            scale(1.04);
+50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 18px rgba(255,77,148,.5);
+}
 
-        box-shadow:
-            0 0 18px
-            rgba(255,77,148,.5);
-    }
-
-    100% {
-        transform:
-            scale(1);
-    }
+100% {
+    transform: scale(1);
+}
+```
 
 }
 
-
-/* ==========================================
-   FLOATING HEARTS
-========================================== */
+/\* ==========================================
+FLOATING HEARTS
+\========================================== \*/
 
 .secretHeart {
-    position: absolute;
-
-    bottom: 120px;
-
-    font-size: 24px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    animation:
-        heartFloat 3s linear forwards;
+position: absolute;
+bottom: 120px;
+font-size: 24px;
+opacity: 0;
+pointer-events: none;
+animation: heartFloat 3s linear forwards;
 }
-
 
 @keyframes heartFloat {
 
-    0% {
-        opacity: 0;
+```
+0% {
+    opacity: 0;
+    transform: translateY(0) scale(.5);
+}
 
-        transform:
-            translateY(0)
-            scale(.5);
-    }
+20% {
+    opacity: 1;
+}
 
-    20% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translateY(-220px)
-            scale(1.5);
-    }
+100% {
+    opacity: 0;
+    transform: translateY(-220px) scale(1.5);
+}
+```
 
 }
 
-
-/* ==========================================
-   SPARKLES
-========================================== */
+/\* ==========================================
+SPARKLES
+\========================================== \*/
 
 .sparkle {
-    position: absolute;
-
-    width: 8px;
-
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    box-shadow:
-        0 0 12px white;
-
-    animation:
-        sparkle .9s linear forwards;
+position: absolute;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+box-shadow: 0 0 12px white;
+animation: sparkle .9s linear forwards;
 }
-
 
 @keyframes sparkle {
 
-    from {
-        opacity: 1;
+```
+from {
+    opacity: 1;
+    transform: scale(.3);
+}
 
-        transform:
-            scale(.3);
-    }
-
-    to {
-        opacity: 0;
-
-        transform:
-            translateY(-60px)
-            scale(1.8);
-    }
+to {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.8);
+}
+```
 
 }
 
-
-/* ==========================================
-   SCREEN TRANSITION
-========================================== */
+/\* ==========================================
+SCREEN TRANSITION
+\========================================== \*/
 
 .secretFadeIn {
-    animation:
-        secretFadeIn .6s ease;
+animation: secretFadeIn .6s ease;
 }
-
 
 .secretFadeOut {
-    animation:
-        secretFadeOut .5s ease forwards;
+animation: secretFadeOut .5s ease forwards;
 }
-
 
 @keyframes secretFadeIn {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
+```
+from {
+    opacity: 0;
+    transform: translateY(25px);
 }
 
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+}
 
 @keyframes secretFadeOut {
 
-    to {
-        opacity: 0;
-
-        transform:
-            translateY(-25px);
-    }
+```
+to {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+```
 
 }
 
+/\* ==========================================
+BUTTON GLOW
+\========================================== \*/
 
-/* ==========================================
-   BUTTON GLOW
-========================================== */
+\#nextSecret {
+position: relative;
+overflow: hidden;
+}
 
+```
 #nextSecret::before {
     content: "";
-
     position: absolute;
-
     top: 0;
-
     left: -120%;
-
     width: 60%;
-
     height: 100%;
-
-    background:
-        rgba(255,255,255,.35);
-
-    transform:
-        skewX(-25deg);
+    background: rgba(255,255,255,.35);
+    transform: skewX(-25deg);
 }
 
-
-@media (hover: hover) {
-
-    #nextSecret:hover::before {
-        animation:
-            shine 1s;
-    }
-
+#nextSecret:hover::before {
+    animation: shine 1s;
 }
-
+```
 
 @keyframes shine {
 
-    from {
-        left: -120%;
-    }
+```
+from {
+    left: -120%;
+}
 
-    to {
-        left: 150%;
-    }
+to {
+    left: 150%;
+}
+```
 
 }
 
+/\* ==========================================
+MOBILE
+\========================================== \*/
 
-/* ==========================================
-   iPHONE / SMALL MOBILE
-========================================== */
+@media(max-width:480px) {
 
-@media (max-width: 480px) {
+```
+.secretContainer {
+    max-width: 340px;
+}
 
-    #secretSection {
-        height: 100dvh;
-        min-height: 100dvh;
+/* Heading */
 
-        padding-left: 15px;
-        padding-right: 15px;
+#secretHeading {
+    font-size: 30px;
+}
 
-        padding-bottom:
-            calc(
-                25px +
-                env(safe-area-inset-bottom)
-            );
-    }
+#secretSubHeading {
+    font-size: 15px;
+}
 
+/* Quiz */
 
-    .secretContainer {
-        width: 100%;
+#quizCard {
+    padding: 20px;
+}
 
-        max-width: 360px;
+#questionText {
+    font-size: 20px;
+}
 
-        padding-top:
-            calc(
-                95px +
-                env(safe-area-inset-top)
-            );
+.quizOption {
+    font-size: 15px;
+    padding: 15px;
+}
 
-        padding-bottom:
-            calc(
-                35px +
-                env(safe-area-inset-bottom)
-            );
-    }
+/* Judu */
 
+#secretJudu {
+    bottom: -300px;
+}
 
-    /* ======================================
-       HEADER
-    ====================================== */
+#secretJuduDog {
+    width: 420px;
+}
 
-    #secretHeading {
-        width: 100%;
+#secretBubble {
+    width: 180px;
+    left: 60px;
+    bottom: 300px;
+    font-size: 14px;
+}
 
-        max-width: 350px;
+/* Folder */
 
-        font-size: 30px;
+#folder {
+    width: 190px;
+    height: 135px;
+}
 
-        line-height: 1.1;
-    }
+.folderPaper {
+    width: 160px;
+}
 
+#folderTitle {
+    font-size: 16px;
+}
 
-    #secretSubHeading {
-        width: 100%;
+#folderSubtitle {
+    font-size: 11px;
+}
 
-        max-width: 340px;
+/* File */
 
-        font-size: 15px;
+#secretFile {
+    max-width: 100%;
+}
 
-        line-height: 1.45;
+#fileBody {
+    padding: 20px;
+    min-height: 220px;
+}
 
-        margin-top: 8px;
-
-        margin-bottom: 24px;
-    }
-
-
-    /* ======================================
-       QUIZ
-    ====================================== */
-
-    #quizCard {
-        width: 100%;
-
-        max-width: 350px;
-
-        padding:
-            20px 17px;
-
-        border-radius: 22px;
-    }
-
-
-    #questionNumber {
-        font-size: 14px;
-
-        margin-bottom: 13px;
-    }
-
-
-    #questionText {
-        font-size: 20px;
-
-        line-height: 1.4;
-
-        margin-bottom: 22px;
-    }
-
-
-    #quizOptions {
-        gap: 13px;
-    }
-
-
-    .quizOption {
-        min-height: 60px;
-
-        padding:
-            14px 10px;
-
-        font-size: 15px;
-
-        border-radius: 17px;
-    }
-
-
-    /* ======================================
-       JUDU
-    ====================================== */
-
-    #secretJudu {
-        width: 100%;
-
-        height: 210px;
-
-        bottom: 15px;
-    }
-
-
-    #secretJuduDog {
-        width: 190px;
-
-        left: -190px;
-
-        bottom: 0;
-    }
-
-
-    #secretBubble {
-        width: 180px;
-
-        max-width:
-            calc(100vw - 70px);
-
-        left: 50%;
-
-        bottom: 105px;
-
-        padding: 14px;
-    }
-
-
-    #secretBubbleTitle {
-        font-size: 17px;
-    }
-
-
-    #secretBubbleText {
-        font-size: 14px;
-
-        line-height: 1.5;
-    }
-
-
-    /* ======================================
-       FOLDER
-    ====================================== */
-
-    #folderContainer {
-        width: 100%;
-
-        margin-top: 30px;
-    }
-
-
-    #folder {
-        width: 200px;
-
-        height: 140px;
-    }
-
-
-    .folderPaper {
-        width: 170px;
-
-        left: 15px;
-
-        right: 15px;
-
-        height: 105px;
-
-        font-size: 36px;
-    }
-
-
-    .folderFront {
-        height: 100px;
-    }
-
-
-    .folderFlap {
-        height: 75px;
-    }
-
-
-    #folderLock {
-        font-size: 40px;
-    }
-
-
-    #folderTitle {
-        font-size: 16px;
-    }
-
-
-    #folderSubtitle {
-        font-size: 11px;
-    }
-
-
-    #folderHint {
-        font-size: 14px;
-
-        margin-top: 15px;
-    }
-
-
-    /* ======================================
-       SECRET FILE
-    ====================================== */
-
-    #secretFile {
-        width: 100%;
-
-        max-width: 350px;
-
-        margin-top: 28px;
-
-        border-radius: 20px;
-    }
-
-
-    #fileHeader {
-        padding:
-            14px 17px;
-    }
-
-
-    #fileTitle {
-        font-size: 18px;
-    }
-
-
-    #fileBody {
-        padding: 20px;
-
-        min-height: 220px;
-    }
-
-
-    #fileContent {
-        font-size: 16px;
-
-        line-height: 1.8;
-    }
-
-
-    #fileStamp {
-        font-size: 13px;
-
-        padding:
-            7px 14px;
-    }
-
-
-    #nextSecret {
-        width: 90%;
-
-        min-height: 56px;
-
-        font-size: 18px;
-
-        margin-top: 28px;
-    }
+#fileContent {
+    font-size: 16px;
+    line-height: 1.9;
+}
+```
 
 }
 
+/\* ==========================================
+TABLET
+\========================================== \*/
 
-/* ==========================================
-   VERY SMALL PHONES
-========================================== */
+@media(min-width:768px) {
 
-@media (max-width: 375px) {
+```
+.secretContainer {
+    max-width: 500px;
+}
 
-    .secretContainer {
-        padding-top:
-            calc(
-                85px +
-                env(safe-area-inset-top)
-            );
-    }
+#secretJuduDog {
+    width: 185px;
+}
 
-
-    #secretHeading {
-        font-size: 27px;
-    }
-
-
-    #secretSubHeading {
-        font-size: 14px;
-
-        margin-bottom: 20px;
-    }
-
-
-    #quizCard {
-        padding:
-            18px 15px;
-    }
-
-
-    #questionText {
-        font-size: 18px;
-    }
-
-
-    .quizOption {
-        min-height: 56px;
-
-        font-size: 14px;
-
-        padding:
-            13px 9px;
-    }
-
-
-    #folder {
-        width: 185px;
-
-        height: 130px;
-    }
-
-
-    #secretFile {
-        max-width: 340px;
-    }
+#secretBubble {
+    width: 250px;
+    left: 150px;
+}
+```
 
 }
 
+/\* ==========================================
+DESKTOP
+\========================================== \*/
 
-/* ==========================================
-   TABLET
-========================================== */
+@media(min-width:1200px) {
 
-@media (min-width: 768px) {
-
-    #secretSection {
-        align-items: flex-start;
-
-        overflow-y: auto;
-    }
-
-
-    .secretContainer {
-        max-width: 500px;
-
-        padding-top: 120px;
-    }
-
-
-    #secretHeading {
-        max-width: 500px;
-
-        font-size: 38px;
-    }
-
-
-    #secretSubHeading {
-        max-width: 450px;
-
-        font-size: 17px;
-
-        margin-bottom: 30px;
-    }
-
-
-    #quizCard {
-        max-width: 500px;
-
-        padding: 24px;
-    }
-
-
-    #questionText {
-        font-size: 23px;
-    }
-
-
-    .quizOption {
-        font-size: 17px;
-
-        padding: 17px;
-    }
-
-
-    #secretJuduDog {
-        width: 185px;
-    }
-
-
-    #secretBubble {
-        width: 250px;
-
-        left: 150px;
-    }
-
-
-    #secretFile {
-        max-width: 500px;
-    }
-
+```
+.secretContainer {
+    max-width: 620px;
 }
 
-
-/* ==========================================
-   DESKTOP
-========================================== */
-
-@media (min-width: 1200px) {
-
-    #secretSection {
-        align-items: flex-start;
-    }
-
-
-    .secretContainer {
-        max-width: 620px;
-
-        padding-top: 130px;
-    }
-
-
-    #secretHeading {
-        max-width: 620px;
-
-        font-size: 44px;
-    }
-
-
-    #secretSubHeading {
-        max-width: 550px;
-
-        font-size: 19px;
-    }
-
-
-    #quizCard {
-        max-width: 500px;
-
-        padding: 28px;
-    }
-
-
-    #questionText {
-        font-size: 25px;
-    }
-
-
-    .quizOption {
-        font-size: 18px;
-
-        padding: 18px;
-    }
-
-
-    #secretJuduDog {
-        width: 210px;
-    }
-
-
-    #secretBubble {
-        width: 280px;
-
-        left: 180px;
-    }
-
-
-    #secretFile {
-        max-width: 550px;
-    }
-
+#quizCard {
+    max-width: 500px;
 }
+
+#secretJuduDog {
+    width: 210px;
+}
+
+#secretBubble {
+    width: 280px;
+    left: 180px;
+}
+```
+
+}change the full code and give back
