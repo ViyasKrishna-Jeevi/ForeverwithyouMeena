@@ -941,19 +941,21 @@
 ========================================== */
 
 .endingSignature {
-    margin-top: 40px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    text-align: center;
 
     font-size: 22px;
-
     color: white;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
+    font-family: "Poppins", sans-serif;
     letter-spacing: 2px;
-
     opacity: .9;
+
+    z-index: 10;
 }
 
 
@@ -1560,18 +1562,18 @@
     ====================================== */
 
     #birthdayMessage {
-    margin-top: 40px;
+    margin-top: 60px;
 
     width: 90%;
     max-width: 350px;
 
     font-family: "Dancing Script", cursive;
 
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 500;
 
     line-height: 1.5;
-    letter-spacing: 0;
+    letter-spacing: 0.2;
 
     text-shadow: none;
     animation: none;
@@ -1667,7 +1669,7 @@
 
 
     .endingSignature {
-        margin-top: 25px;
+        bottom: 20px;
 
         font-size: 18px;
     }
