@@ -1792,10 +1792,6 @@ function showBirthdayEnding() {
 
         <div id="cakeMoon"></div>
 
-        <img
-        id="endingCake"
-        src="images/gift/cake_unlit.png">
-
         <h1 id="birthdayTitle"></h1>
 
         <p id="birthdayMessage"></p>
