@@ -73,7 +73,6 @@ const secretStory = [
 
         text:
             `You probably don't remember...
-
 But I remember everything.
 The way you smiled.
 The way you looked at me.
@@ -104,13 +103,10 @@ days of my life.`
         text:
             `Some people
 have favourite songs.
-
 Some people
 have favourite places.
-
 I have
 a favourite smile.
-
 It's yours.`
     },
 
@@ -137,15 +133,10 @@ It's yours.`
 
         text:
             `I've never met someone
-
 who could turn
-
 every conversation
-
 back to one person.
-
 That person...
-
 is you ❤️`
     },
 
@@ -168,13 +159,9 @@ is you ❤️`
 
         title: "Future",
 
-        text:
-            `Every dream
-
+        text:`Every dream
 Every future plan
-
 Every little wish
-
 is with you.`
     },
 
