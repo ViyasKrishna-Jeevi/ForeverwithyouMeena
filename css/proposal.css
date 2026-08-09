@@ -271,7 +271,7 @@ TITLE
 
     #proposalLetter {
         width: 94%;
-        height: 84vh;
+        height: 80vh;
         padding: 28px 24px;
         border-radius: 22px;
     }
@@ -1119,7 +1119,7 @@ MOBILE — iPHONE / SMALL SCREENS
         width: 145px;
         height: 55px;
 
-        left: 0%;
+        left: 10%;
         top: 42px;
 
         transform:
@@ -1157,7 +1157,7 @@ MOBILE — iPHONE / SMALL SCREENS
     #proposalRing {
         width: 185px;
 
-        left: 0%;
+        left: -10%;
 
         bottom: 48px;
 
