@@ -1,7 +1,64 @@
 ﻿// ==========================================
 // PROPOSAL
 // ==========================================
+function playRingMusic() {
 
+    const ringMusic =
+    document.getElementById("bgMusic");
+
+
+    ringMusic.volume = 0;
+
+    ringMusic.play();
+
+
+    let fade =
+        setInterval(() => {
+
+            if (ringMusic.volume < 0.8) {
+
+                ringMusic.volume += 0.05;
+
+            }
+            else {
+
+                clearInterval(fade);
+
+            }
+
+
+        }, 200);
+
+}
+
+
+
+// Stop ring music
+
+function stopRingMusic() {
+
+    let fade =
+        setInterval(() => {
+
+
+            if (ringMusic.volume > 0) {
+
+                ringMusic.volume -= 0.05;
+
+            }
+
+            else {
+
+                ringMusic.pause();
+
+                clearInterval(fade);
+
+            }
+
+
+        }, 200);
+
+}
 const proposalDialogue = [
 
     "Woof... 🐶",
@@ -338,6 +395,7 @@ function showLetter() {
     }, 100);
 }
 function typeProposalLetter() {
+    playRingMusic();
 
     const box =
         document.getElementById("proposalLetterText");
@@ -375,7 +433,7 @@ function typeProposalLetter() {
 
     }, typingSpeed);
 
-    playRingMusic();
+    
 }
 
 function continueToRing() {
@@ -482,68 +540,11 @@ function bounceRing() {
 }
 
 
-const ringMusic =
-    document.getElementById("bgMusic");
 
 
 // Start ring music
 
-function playRingMusic() {
 
-    
-
-    ringMusic.volume = 0;
-
-    ringMusic.play();
-
-
-    let fade =
-        setInterval(() => {
-
-            if (ringMusic.volume < 0.8) {
-
-                ringMusic.volume += 0.05;
-
-            }
-            else {
-
-                clearInterval(fade);
-
-            }
-
-
-        }, 200);
-
-}
-
-
-
-// Stop ring music
-
-function stopRingMusic() {
-
-    let fade =
-        setInterval(() => {
-
-
-            if (ringMusic.volume > 0) {
-
-                ringMusic.volume -= 0.05;
-
-            }
-
-            else {
-
-                ringMusic.pause();
-
-                clearInterval(fade);
-
-            }
-
-
-        }, 200);
-
-}
 function openRingAnimation() {
 
     // Hide the tap hint immediately
