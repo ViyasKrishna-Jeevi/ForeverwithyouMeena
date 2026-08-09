@@ -1280,4 +1280,13 @@ MOBILE — iPHONE / SMALL SCREENS
 
         line-height: 1.6;
     }
+   
+   #birthdayMessage {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transform: translateY(-25px);
+
+    max-width: 92%;
+    line-height: 1.5;
+}
 }
