@@ -1264,6 +1264,10 @@
 
         height: 135px;
     }
+   
+   #folderContainer {
+    margin-top: 100px;
+    }
 
     .folderPaper {
         width: 160px;
