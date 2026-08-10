@@ -701,12 +701,22 @@ BUTTONS
 }
 
 #foreverLine {
+    position: absolute;
     bottom: 25px;
-    position:absolute;
-    font-size: 24px;
-    font-weight: 600;
-
+    left: 50%;
+    transform: translateX(-50%);
+    
+    color: white;
+    font-size: 20px;
     text-align: center;
+    z-index: 5;
+    
+    transition: opacity .3s ease;
+}
+
+/* Hide Forever With You when Love Question opens */
+#loveQuestion:not(.hidden) ~ #foreverLine {
+    display: none;
 }
 /* ==========================================
    FOREVER SCREEN
