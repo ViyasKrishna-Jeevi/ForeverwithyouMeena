@@ -2028,7 +2028,7 @@ async function saveLoveAnswer() {
 
             <div class="endingSignature">
 
-                Forever With You ❤️
+                Hold your hands till end..❤️
 
                 <br>
 
