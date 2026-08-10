@@ -410,7 +410,7 @@ function typeProposalLetter() {
     let i = 0;
 
     // Slower and more emotional
-    const typingSpeed = 85;
+    const typingSpeed = 45;
 
     const timer = setInterval(() => {
 
@@ -1181,7 +1181,7 @@ function showCakeBubble() {
 
                 clearInterval(timer);
 
-                text.innerHTML += "<br><br>";
+                text.innerHTML += "<br>";
 
                 line++;
 
