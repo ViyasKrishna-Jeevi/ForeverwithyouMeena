@@ -1143,7 +1143,8 @@ function showCakeBubble() {
         "Woof! 🐶",
         "Today is a very special day...",
         "Before we celebrate...",
-        "Let's light the candles together! 🎂✨"
+        "Let's light the candles together! 🎂✨",
+        "Tap on the cake...."
     ];
 
     let line = 0;
