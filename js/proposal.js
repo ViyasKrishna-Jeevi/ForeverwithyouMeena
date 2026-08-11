@@ -1263,7 +1263,7 @@ function createRingExplosion() {
 
 function enableCakeTap() {
 
-    const cake = document.getElementById("birthdayCake");
+    const cake = document.getElementById("cakeContainer");
 
     cake.onclick = function () {
 
